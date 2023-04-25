@@ -17,31 +17,21 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="{{Route('dashboard')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="{{ Route('dashboard') }}" class="nav-item nav-link active"><i
+                    class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="far fa-file-alt me-2"></i>Danh mục</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a href="{{Route('admin.category.create')}}" class="dropdown-item">Thêm mới</a>
-                    <a href="signin.html" class="dropdown-item">Danh sách</a>
-                </div>
+                <a href="{{ Route('admin.categories.create') }}" class="nav-link"><i class="far fa-file-alt me-2"></i>Danh
+                    mục</a>
             </div>
         </div>
 
         <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" id="pagesDropdown" data-bs-toggle="dropdown"><i
-                        class="far fa-file-alt me-2"></i>Cha</a>
+                        class="far fa-file-alt me-2"></i>Bài viết</a>
                 <div class="dropdown-menu bg-transparent border-0" aria-labelledby="pagesDropdown">
-                    <a href="404.html" class="dropdown-item">con 1</a>
-                    <div class="dropdown">
-                        <a href="#" class="dropdown-item dropdown-toggle-sub" data-bs-toggle="dropdown"
-                            id="subMenu">con 2</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="#" class="dropdown-item-sub">chau 1</a>
-                            <a href="#" class="dropdown-item-sub">chau 2</a>
-                        </div>
-                    </div>
+                    <a href="{{ Route('admin.post.create') }}" class="dropdown-item">Thêm mới</a>
+                    <a href="404.html" class="dropdown-item">Danh sách</a>
                 </div>
             </div>
         </div>

@@ -8,6 +8,6 @@
             @yield('content')
         </div>
 
-        @include('admin.components.footer')
+        {{-- @include('admin.components.footer') --}}
     </div>
 @endsection
