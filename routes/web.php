@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('posts/create', [AdminPostController::class, 'create'])->name('post.create');
 
+        Route::get('users/show', [AdminUserController::class, 'show'])->name('users.show');
+        Route::post('users/update', [AdminUserController::class, 'update'])->name('users.update');
     });
 });
 

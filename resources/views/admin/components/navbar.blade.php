@@ -12,7 +12,7 @@
          <div class="nav-item dropdown">
              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                  <i class="fa fa-bell me-lg-2"></i>
-                 <span class="d-none d-lg-inline-flex">Notificatin</span>
+                 <span class="d-none d-lg-inline-flex">Thông báo</span>
              </a>
              <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                  <a href="#" class="dropdown-item">
@@ -24,11 +24,11 @@
              </div>
          </div>
          <div class="nav-item dropdown">
-             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+             <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                  <span class="d-none d-lg-inline-flex">Xin chào {{ Auth::user()->name }}</span>
              </a>
              <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                 <a href="#" class="dropdown-item">My Profile</a>
+                 <a href="{{ Route('admin.users.show') }}" class="dropdown-item">My Profile</a>
                  <a href="{{ Route('logout') }}" class="dropdown-item">Log Out</a>
              </div>
          </div>
