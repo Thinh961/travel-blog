@@ -30,7 +30,8 @@
     <!-- Template Stylesheet -->
     <link href="{{ Asset('admin/css/style.css') }}" rel="stylesheet">
 
-    <script src="https://cdn.tiny.cloud/1/s74er1dp3n2vqtl39an123a03d4jms2uiqlpg592i9m3x4kz/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/s74er1dp3n2vqtl39an123a03d4jms2uiqlpg592i9m3x4kz/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -104,6 +105,7 @@
     <!-- Template Javascript -->
     <script src="{{ Asset('admin/js/main.js') }}"></script>
     <script src="{{ Asset('admin/js/submenu.js') }}"></script>
+    <script src="{{ Asset('admin/js/app.js') }}"></script>
 </body>
 
 </html>

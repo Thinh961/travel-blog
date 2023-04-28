@@ -31,8 +31,8 @@
                 <a href="#" class="nav-link dropdown-toggle" id="pagesDropdown" data-bs-toggle="dropdown"><i
                         class="far fa-file-alt me-2"></i>Bài viết</a>
                 <div class="dropdown-menu bg-transparent border-0" aria-labelledby="pagesDropdown">
-                    <a href="{{ Route('admin.post.create') }}" class="dropdown-item">Thêm mới</a>
-                    <a href="404.html" class="dropdown-item">Danh sách</a>
+                    <a href="{{ Route('admin.posts.create') }}" class="dropdown-item">Thêm mới</a>
+                    <a href="{{ Route('admin.posts.index') }}" class="dropdown-item">Danh sách</a>
                 </div>
             </div>
         </div>

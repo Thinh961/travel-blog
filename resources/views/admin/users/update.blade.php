@@ -31,7 +31,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Avatar</label>
-                        <input class="form-control" name="avatar" type="file" id="formFile">
+                        <input class="form-control" name="avatar" type="file" id="formFile" onchange="previewImage(this, 'avatar')">
                         @error('avatar')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -46,11 +46,6 @@
             </div>
         </div>
         <script>
-            formFile.onchange = evt => {
-                const [file] = formFile.files
-                if (file) {
-                    avatar.src = URL.createObjectURL(file)
-                }
-            }
-        </script>
+          
+        </script>        
     @endsection

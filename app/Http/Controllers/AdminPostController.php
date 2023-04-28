@@ -8,6 +8,7 @@ class AdminPostController extends Controller
 {
     public function index()
     {
+        return view('admin.posts.index');
     }
 
     public function create()
