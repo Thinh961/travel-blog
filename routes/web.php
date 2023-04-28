@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::name('admin.')->prefix('admin/')->group(function () {
         Route::get('categories', [AdminCategoryController::class, 'index'])->name('categories.index');
         Route::get('categories/create', [AdminCategoryController::class, 'create'])->name('categories.create');
-        Route::get('categories/store', [AdminCategoryController::class, 'store'])->name('categories.store');
+        Route::post('categories/store', [AdminCategoryController::class, 'store'])->name('categories.store');
 
         Route::get('posts/index', [AdminPostController::class, 'index'])->name('posts.index');
         Route::get('posts/create', [AdminPostController::class, 'create'])->name('posts.create');

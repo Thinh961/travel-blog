@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <form>
+    <form method="POST" action="">
+        @csrf
         <div class="row bg-light">
             <div class="col-sm-12 col-xl-6">
                 <div class="rounded h-100 p-4">
