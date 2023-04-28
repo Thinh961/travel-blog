@@ -11,11 +11,12 @@ class UploadService
      */
     public function uploadImage($image, $nameFolder)
     {
-        $directory = 'public/uploads/' . $nameFolder . '/';
+        $directory = 'uploads/' . $nameFolder . '/';
+        $path = 'public/' . $directory;
         $image_full_name = $image->getClientOriginalName();
         $image_name = current(explode('.', $image_full_name));
         $new_image = $image_name . '_' . Carbon::now()->timestamp . '.' . $image->getClientOriginalExtension();
-        $image->move($directory, $new_image);
+        $image->move($path, $new_image);
 
         return $directory . $new_image;
     }
@@ -26,13 +27,14 @@ class UploadService
     public function uploadMultiImage($images, $nameFolder)
     {
         $result = [];
-        $directory = 'public/uploads/' . $nameFolder . '/';
+        $directory = 'uploads/' . $nameFolder . '/';
+        $path = 'public/' . $directory;
         if (!empty($images)) {
             foreach ($images as $image) {
                 $image_full_name = $image->getClientOriginalName();
                 $image_name = current(explode('.', $image_full_name));
                 $new_image = $image_name . '_' . Carbon::now()->timestamp . '.' . $image->getClientOriginalExtension();
-                $image->move($directory, $new_image);
+                $image->move($path, $new_image);
                 $result[] =  $directory . $new_image;
             }
         }

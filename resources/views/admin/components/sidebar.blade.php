@@ -5,7 +5,7 @@
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
-                <img class="rounded-circle" src="{{ Asset('admin/img/user.jpg') }}" alt=""
+                <img class="rounded-circle" src="{{ Asset(Auth::user()->avatar) }}" alt=""
                     style="width: 40px; height: 40px;">
                 <div
                     class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
@@ -20,7 +20,8 @@
             <a href="{{ Route('dashboard') }}" class="nav-item nav-link active"><i
                     class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
-                <a href="{{ Route('admin.categories.create') }}" class="nav-link"><i class="far fa-file-alt me-2"></i>Danh
+                <a href="{{ Route('admin.categories.create') }}" class="nav-link"><i
+                        class="far fa-file-alt me-2"></i>Danh
                     mục</a>
             </div>
         </div>

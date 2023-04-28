@@ -7,9 +7,11 @@ use App\Models\User;
 use App\Services\UploadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
+    /** @var string upload folder */
     const UPLOAD_FOLDER = 'users';
 
     private $uploadService;
@@ -27,19 +29,18 @@ class AdminUserController extends Controller
 
     public function update(UserRequest $request)
     {
-        $params = $request->all();
-        $user = Auth::user();
-        if (!empty($params['avatar'])) {
-            $params['avatar'] = $this->uploadService->uploadImage($params['avatar'], self::UPLOAD_FOLDER);
+        $params = $request->except('password');
+        if (!empty($request->avatar)) {
+            $params['avatar'] = $this->uploadService->uploadImage($request->avatar, self::UPLOAD_FOLDER);
         }
 
-        if ($request->filled('password')) {
-            $params['password'] = bcrypt($request->password);
+        if (!empty($request->password)) {
+            $params['password'] = Hash::make($request->password);
         }
-        return $params;
 
-        User::find($user->id)->update($params);
+        User::find(Auth::user()->id)->update($params);
+        $this->toastUpdateSuccess();
 
-        return $params;
+        return redirect()->back();
     }
 }

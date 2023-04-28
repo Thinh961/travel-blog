@@ -32,13 +32,14 @@
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Avatar</label>
                         <input class="form-control" name="avatar" type="file" id="formFile">
-                         @error('avatar')
+                        @error('avatar')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <img id="avatar" class="rounded rounded-circle" src="{{ $user->avatar ?? Asset('/admin/img/default-image.jpg') }}"
-                            width="250px" height="250px" alt="">
+                        <img id="avatar" class="rounded rounded-circle"
+                            src="{{ Asset($user->avatar) ?? Asset('/admin/img/default-image.jpg') }}" width="250px"
+                            height="250px" alt="">
                     </div>
                     <button type="submit" class="btn btn-primary">Cập nhật</button>
                 </form>
