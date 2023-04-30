@@ -14,4 +14,9 @@ class Category extends Model implements TranslatableContract
 
     public $translatedAttributes = ['name'];
     protected $guarded = [];
+
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
 }

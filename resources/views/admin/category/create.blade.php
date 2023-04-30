@@ -22,11 +22,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="name-china" class="form-label">Danh mục cha</label>
-                        <select class="form-select mb-3" name="parent_id" aria-label="Default select example">
-                            <option value="">Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select mb-3" name="parent_id">
+                            <option value="0">--Chọn danh mục--</option>
+                            @foreach ($categories as $item)
+                                <option value="{{ $item->id }}">
+                                    {{ str_repeat('|---', $item->level) . $item->translate('vie')->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-check form-switch mb-2">
@@ -49,44 +50,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>John</td>
-                            <td>
-                                <a href="" class="btn btn-success btn-sm rounded-0 text-white" type="button"
-                                    data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                <a href="" class="btn btn-danger btn-sm rounded-0 text-white"
-                                    onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="button"
-                                    data-toggle="tooltip" data-placement="top" title="Delete"><i
-                                        class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Mark</td>
-                            <td>
-                                <a href="" class="btn btn-success btn-sm rounded-0 text-white" type="button"
-                                    data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                <a href="" class="btn btn-danger btn-sm rounded-0 text-white"
-                                    onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="button"
-                                    data-toggle="tooltip" data-placement="top" title="Delete"><i
-                                        class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Jacob</td>
-                            <td>
-                                <a href="" class="btn btn-success btn-sm rounded-0 text-white" type="button"
-                                    data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                <a href="" class="btn btn-danger btn-sm rounded-0 text-white"
-                                    onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="button"
-                                    data-toggle="tooltip" data-placement="top" title="Delete"><i
-                                        class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
+                        @foreach ($categories as $item)
+                            <tr>
+                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td>{{ str_repeat('|---', $item->level) . $item->translate('vie')->name }}</td>
+                                <td>
+                                    <a href="" class="btn btn-success btn-sm rounded-0 text-white" type="button"
+                                        data-toggle="tooltip" data-placement="top" title="Edit"><i
+                                            class="fa fa-edit"></i></a>
+                                    <a href="" class="btn btn-danger btn-sm rounded-0 text-white"
+                                        onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="button"
+                                        data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                            class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
+                {{ $categories->render('pagination') }}
             </div>
         </div>
     </div>
