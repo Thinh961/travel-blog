@@ -15,6 +15,7 @@ class Controller extends BaseController
     const TOAST_CREATE_SUCCESS = 'Thêm mới thành công';
     const TOAST_DELETE_SUCCESS = 'Xoá thành công';
     const STATUS_ON = 'on';
+    const STATUS_OFF = 'off';
 
     public function toastUpdateSuccess()
     {

@@ -35,7 +35,7 @@ class AdminCategoryController extends Controller
     public function store(CategoryCreateRequest $request)
     {
         $data = [
-            'active' => $request->active ?? 'off',
+            'active' => $request->active ?? self::STATUS_OFF,
             'parent_id' => $request->parent_id ?? 0,
             'slug' => Str::slug($request->name, '-'),
             'vie' => ['name' => $request->name],

@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('posts/index', [AdminPostController::class, 'index'])->name('posts.index');
         Route::get('posts/create', [AdminPostController::class, 'create'])->name('posts.create');
+        Route::post('posts/store', [AdminPostController::class, 'store'])->name('posts.store');
 
         Route::get('users/show', [AdminUserController::class, 'show'])->name('users.show');
         Route::post('users/update', [AdminUserController::class, 'update'])->name('users.update');

@@ -1,39 +1,56 @@
 @extends('layouts.admin')
 
 @section('content')
-    <form method="POST" action="">
+    <form method="POST" action="{{ Route('admin.posts.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="row bg-light">
             <div class="col-sm-12 col-xl-6">
                 <div class="rounded h-100 p-4">
                     <div class="mb-3">
                         <label for="name" class="form-label">Tên bài viết</label>
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name">
+                        @error('name')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Mô tả ngắn</label>
-                        <textarea name="" id="" class="form-control" cols="10" rows="10"></textarea>
+                        <label for="description" class="form-label">Mô tả ngắn</label>
+                        <textarea name="description" id="description" class="form-control" cols="10" rows="10">{{ old('description') }}</textarea>
+                        @error('description')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="name-china" class="form-label">Nội dung</label>
-                        <textarea name="" id="" class="form-control" cols="10" rows="20"></textarea>
+                        <label for="content" class="form-label">Nội dung</label>
+                        <textarea name="content" id="content" class="form-control" cols="10" rows="20">{{ old('content') }}</textarea>
+                        @error('content')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="name-china" class="form-label">Danh mục bài viết</label>
-                        <select class="form-select mb-3" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <label for="category_id" class="form-label">Danh mục bài viết</label>
+                        <select class="form-select" name="category_id">
+                            <option value="">--Chọn danh mục--</option>
+                            @foreach ($categories as $item)
+                                <option {{ old('category_id') == $item->id ? 'selected' : '' }} value="{{ $item->id }}">
+                                    {{ str_repeat('|---', $item->level) . $item->translate('vie')->name }}</option>
+                            @endforeach
                         </select>
+                        @error('category_id')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="formFile" class="form-label">Ảnh tiêu đề</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <label for="formFile" class="form-label">Ảnh bài viết</label>
+                        <input class="form-control" name="image" type="file" id="formFile">
+                        @error('image')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="form-check form-switch mb-2">
                         <label class="form-check-label" for="active">Kích hoạt</label>
-                        <input class="form-check-input" type="checkbox" role="switch" id="active" checked>
+                        <input class="form-check-input" name="active" type="checkbox" role="switch" id="active"
+                            checked>
                     </div>
                     <button type="submit" class="btn btn-primary">Thêm mới</button>
                 </div>
@@ -41,16 +58,26 @@
             <div class="col-xl-6">
                 <div class="rounded h-100 p-4">
                     <div class="mb-3">
-                        <label for="name-china" class="form-label">Tên bài viết (tiếng Trung)</label>
-                        <input type="text" class="form-control" id="name-china">
+                        <label for="name_zh" class="form-label">Tên bài viết (tiếng Trung)</label>
+                        <input type="text" name="name_zh" value="{{ old('name_zh') }}" class="form-control"
+                            id="name_zh">
+                        @error('name_zh')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Mô tả ngắn(tiếng Trung)</label>
-                        <textarea name="" id="" class="form-control" cols="10" rows="10"></textarea>
+                        <textarea name="description_zh" class="form-control" cols="10" rows="10">{{ old('description_zh') }}</textarea>
+                        @error('description_zh')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="name-china" class="form-label">Nội dung (tiếng Trung)</label>
-                        <textarea name="" id="" class="form-control" cols="10" rows="20"></textarea>
+                        <textarea name="content_zh" class="form-control" cols="10" rows="20">{{ old('content_zh') }}</textarea>
+                        @error('content_zh')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>

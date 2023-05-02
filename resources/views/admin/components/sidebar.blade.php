@@ -20,11 +20,6 @@
             <a href="{{ Route('dashboard') }}"
                 class="nav-item nav-link {{ session('moduleActive') == 'dashboard' ? 'active' : '' }}"><i
                     class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            {{-- <div class="nav-item dropdown">
-                <a href="{{ Route('admin.categories.create') }}" class="nav-link"><i
-                        class="far fa-file-alt me-2"></i>Danh
-                    mục</a>
-            </div> --}}
         </div>
         <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
@@ -39,9 +34,9 @@
 
         <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="pagesDropdown" data-bs-toggle="dropdown"><i
+                <a href="#" class="nav-link dropdown-toggle {{ session('moduleActive') == 'posts' ? 'active' : '' }}" id="pagesDropdown" data-bs-toggle="dropdown"><i
                         class="far fa-file-alt me-2"></i>Bài viết</a>
-                <div class="dropdown-menu bg-transparent border-0" aria-labelledby="pagesDropdown">
+                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'posts' ? 'show' : '' }}" aria-labelledby="pagesDropdown">
                     <a href="{{ Route('admin.posts.create') }}" class="dropdown-item">Thêm mới</a>
                     <a href="{{ Route('admin.posts.index') }}" class="dropdown-item">Danh sách</a>
                 </div>
