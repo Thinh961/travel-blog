@@ -17,12 +17,23 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="{{ Route('dashboard') }}" class="nav-item nav-link active"><i
+            <a href="{{ Route('dashboard') }}"
+                class="nav-item nav-link {{ session('moduleActive') == 'dashboard' ? 'active' : '' }}"><i
                     class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            <div class="nav-item dropdown">
+            {{-- <div class="nav-item dropdown">
                 <a href="{{ Route('admin.categories.create') }}" class="nav-link"><i
                         class="far fa-file-alt me-2"></i>Danh
                     mục</a>
+            </div> --}}
+        </div>
+        <div class="navbar-nav w-100">
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle {{ session('moduleActive') == 'category' ? 'active' : '' }}" id="pagesDropdown" data-bs-toggle="dropdown"><i
+                        class="far fa-file-alt me-2"></i>Danh mục</a>
+                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'category' ? 'show' : '' }}" aria-labelledby="pagesDropdown">
+                    <a href="{{ Route('admin.categories.index') }}" class="dropdown-item">Danh sách</a>
+                    <a href="{{ Route('admin.categories.create') }}" class="dropdown-item">Thêm mới</a>
+                </div>
             </div>
         </div>
 

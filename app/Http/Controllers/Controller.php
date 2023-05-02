@@ -13,7 +13,7 @@ class Controller extends BaseController
 
     const TOAST_UPDATE_SUCCESS = 'Cập nhật thành công';
     const TOAST_CREATE_SUCCESS = 'Thêm mới thành công';
-    const TOAST_XOÁ_SUCCESS = 'Cập nhật thành công';
+    const TOAST_DELETE_SUCCESS = 'Xoá thành công';
     const STATUS_ON = 'on';
 
     public function toastUpdateSuccess()
@@ -24,5 +24,10 @@ class Controller extends BaseController
     public function toastCreateSuccess()
     {
         toastr()->success(self::TOAST_CREATE_SUCCESS);
+    }
+
+    public function toastDeleteSuccess()
+    {
+        toastr()->success(self::TOAST_DELETE_SUCCESS);
     }
 }
