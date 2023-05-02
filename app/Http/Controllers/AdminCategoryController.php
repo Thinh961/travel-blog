@@ -13,7 +13,7 @@ class AdminCategoryController extends Controller
 {
     public function create()
     {
-        $categories = CategoryTrait::paginateNestedCategories(0, 2);
+        $categories = CategoryTrait::paginateNestedCategories(0, 10);
         return view('admin.category.create', compact('categories'));
     }
 
