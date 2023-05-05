@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminAboutUsController;
 use App\Http\Controllers\AdminBannerController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
@@ -51,6 +51,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('banners/show/{id}', [AdminBannerController::class, 'show'])->name('banners.show');
         Route::post('banners/update/{id}', [AdminBannerController::class, 'update'])->name('banners.update');
         Route::get('banners/destroy/{id}', [AdminBannerController::class, 'destroy'])->name('banners.destroy');
+
+        Route::get('about-us/create', [AdminAboutUsController::class, 'create'])->name('about_us.create');
+        Route::post('about-us/store', [AdminAboutUsController::class, 'store'])->name('about_us.store');
     });
 });
 

@@ -22,6 +22,11 @@
                     class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
         </div>
         <div class="navbar-nav w-100">
+            <a href="{{ Route('admin.about_us.create') }}"
+                class="nav-item nav-link {{ session('moduleActive') == 'about_us' ? 'active' : '' }}"><i
+                    class="fa fa-tachometer-alt me-2"></i>About Us</a>
+        </div>
+        <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
                 <a href="#"
                     class="nav-link dropdown-toggle {{ session('moduleActive') == 'category' ? 'active' : '' }}"
