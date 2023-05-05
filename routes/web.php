@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminBannerController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\DashboardController;
@@ -43,6 +44,13 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('users/show', [AdminUserController::class, 'show'])->name('users.show');
         Route::post('users/update', [AdminUserController::class, 'update'])->name('users.update');
+
+        Route::get('banners/index', [AdminBannerController::class, 'index'])->name('banners.index');
+        Route::get('banners/create', [AdminBannerController::class, 'create'])->name('banners.create');
+        Route::post('banners/store', [AdminBannerController::class, 'store'])->name('banners.store');
+        Route::get('banners/show/{id}', [AdminBannerController::class, 'show'])->name('banners.show');
+        Route::post('banners/update/{id}', [AdminBannerController::class, 'update'])->name('banners.update');
+        Route::get('banners/destroy/{id}', [AdminBannerController::class, 'destroy'])->name('banners.destroy');
     });
 });
 

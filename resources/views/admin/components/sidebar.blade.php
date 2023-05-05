@@ -23,9 +23,11 @@
         </div>
         <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ session('moduleActive') == 'category' ? 'active' : '' }}" id="pagesDropdown" data-bs-toggle="dropdown"><i
-                        class="far fa-file-alt me-2"></i>Danh mục</a>
-                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'category' ? 'show' : '' }}" aria-labelledby="pagesDropdown">
+                <a href="#"
+                    class="nav-link dropdown-toggle {{ session('moduleActive') == 'category' ? 'active' : '' }}"
+                    id="pagesDropdown" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Danh mục</a>
+                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'category' ? 'show' : '' }}"
+                    aria-labelledby="pagesDropdown">
                     <a href="{{ Route('admin.categories.index') }}" class="dropdown-item">Danh sách</a>
                     <a href="{{ Route('admin.categories.create') }}" class="dropdown-item">Thêm mới</a>
                 </div>
@@ -34,11 +36,26 @@
 
         <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ session('moduleActive') == 'posts' ? 'active' : '' }}" id="pagesDropdown" data-bs-toggle="dropdown"><i
-                        class="far fa-file-alt me-2"></i>Bài viết</a>
-                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'posts' ? 'show' : '' }}" aria-labelledby="pagesDropdown">
+                <a href="#"
+                    class="nav-link dropdown-toggle {{ session('moduleActive') == 'posts' ? 'active' : '' }}"
+                    id="pagesDropdown" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Bài viết</a>
+                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'posts' ? 'show' : '' }}"
+                    aria-labelledby="pagesDropdown">
                     <a href="{{ Route('admin.posts.create') }}" class="dropdown-item">Thêm mới</a>
                     <a href="{{ Route('admin.posts.index') }}" class="dropdown-item">Danh sách</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar-nav w-100">
+            <div class="nav-item dropdown">
+                <a href="#"
+                    class="nav-link dropdown-toggle {{ session('moduleActive') == 'banners' ? 'active' : '' }}"
+                    id="pagesDropdown" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Banner</a>
+                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'banners' ? 'show' : '' }}"
+                    aria-labelledby="pagesDropdown">
+                    <a href="{{ Route('admin.banners.create') }}" class="dropdown-item">Thêm mới</a>
+                    <a href="{{ Route('admin.banners.index') }}" class="dropdown-item">Danh sách</a>
                 </div>
             </div>
         </div>

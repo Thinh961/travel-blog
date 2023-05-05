@@ -23,7 +23,7 @@
                 <option>3</option>
                 <option>4</option>
             </select>
-            <button type="button" class="btn btn-primary ms-2">Action</button>
+            <button type="button" class="btn btn-primary ms-2">Thao tác</button>
         </div>
         <hr>
         <div class="table-responsive">
@@ -46,7 +46,7 @@
                             <td>{{ $item->created_at }}</td>
                             <td><img src="{{ Asset($item->image) }}" class="img-fluid" width="150" height="150"></td>
                             <td>{{ $item->translate('vie')->name }}</td>
-                            <td>{{ $item->category->translate('vie')->name }}</td>
+                            <td>{{ $item->category->translate(app()->getLocale())->name }}</td>
                             <td>
                                 {{ $item->active == 'on' ? 'Hiển thị' : 'Không hiển thị' }}
                             </td>
