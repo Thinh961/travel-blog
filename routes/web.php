@@ -3,10 +3,12 @@
 use App\Http\Controllers\AdminAboutUsController;
 use App\Http\Controllers\AdminBannerController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminMediaController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +29,11 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
+/**Client Router */
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 
+/**Admin Router */
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -64,6 +70,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('medias/show/{id}', [AdminMediaController::class, 'show'])->name('medias.show');
         Route::post('medias/update/{id}', [AdminMediaController::class, 'update'])->name('medias.update');
         Route::get('medias/destroy/{id}', [AdminMediaController::class, 'destroy'])->name('medias.destroy');
+
+        Route::get('contacts', [AdminContactController::class, 'index'])->name('contacts.index');
+        Route::get('contacts/show/{id}', [AdminContactController::class, 'show'])->name('contacts.show');
+        Route::get('contacts/destroy/{id}', [AdminContactController::class, 'destroy'])->name('contacts.destroy');
+
     });
 });
 

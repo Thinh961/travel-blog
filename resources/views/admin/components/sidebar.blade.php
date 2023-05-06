@@ -30,6 +30,11 @@
                 class="nav-item nav-link {{ session('moduleActive') == 'medias' ? 'active' : '' }}"><i class="fab fa-internet-explorer"></i>Mạng xã hội</a>
         </div>
         <div class="navbar-nav w-100">
+            <a href="{{ Route('admin.contacts.index') }}"
+                class="nav-item nav-link {{ session('moduleActive') == 'contacts' ? 'active' : '' }}"><i
+                    class="fa fa-tachometer-alt me-2"></i>Liên hệ</a>
+        </div>
+        <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
                 <a href="#"
                     class="nav-link dropdown-toggle {{ session('moduleActive') == 'category' ? 'active' : '' }}"

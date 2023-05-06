@@ -50,24 +50,18 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York,
-                        USA</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                    <small class="me-3 text-light"><i
+                            class="fa fa-map-marker-alt me-2"></i>{{ $aboutUs->address }}</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>{{ $aboutUs->phone }}</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>{{ $aboutUs->email }}</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
-                            class="fab fa-twitter fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
-                            class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
-                            class="fab fa-linkedin-in fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
-                            class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i
-                            class="fab fa-youtube fw-normal"></i></a>
+                    @foreach ($medias as $item)
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
+                            href="{{ $item->link }}">{!! $item->icon !!} </a>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -79,8 +73,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>laibaoxinchuan</h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
+                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Laibaoxinchuan</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -101,7 +94,7 @@
                             <a href="404.html" class="dropdown-item">404 Page</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="{{ Route('contact.index') }}" class="nav-item nav-link">Liên hệ</a>
                 </div>
             </div>
         </nav>
@@ -110,9 +103,8 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Enjoy Your Vacation With Us</h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Tempor erat elitr rebum at clita diam amet
-                            diam et eos erat ipsum lorem sit</p>
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">Chào mừng đến với Laibaoxinchuan
+                        </h1>
                         <div class="position-relative w-75 mx-auto animated slideInDown">
                             <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text"
                                 placeholder="Eg: laibaoxinchuan">
@@ -140,9 +132,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $aboutUs->address }}</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $aboutUs->phone }}</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $aboutUs->email }}</p>
 
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -171,30 +163,30 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Media</h4>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i
-                                class="fab fa-linkedin-in"></i></a>
+                        @foreach ($medias as $item)
+                            <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
+                                href="{{ $item->link }}">{!! $item->icon !!} </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="copyright">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; Bản quyển thuộc về Laixuanxinchao
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <div class="footer-menu">
-                        <a href="">Home</a>
-                        <a href="">Cookies</a>
-                        <a href="">Help</a>
-                        <a href="">FQAs</a>
+    <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s"">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; Bản quyền thuộc về Laixuanxinchao
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FQAs</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -15,14 +15,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Mô tả ngắn</label>
-                        <textarea name="description" id="description" class="form-control" cols="10" rows="10">{{ old('description') }}</textarea>
+                        <textarea name="description" id="description" class="form-control editor" cols="10" rows="10">{{ old('description') }}</textarea>
                         @error('description')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="content" class="form-label">Nội dung</label>
-                        <textarea name="content" id="content" class="form-control" cols="10" rows="20">{{ old('content') }}</textarea>
+                        <label for="content" class="form-label editor">Nội dung</label>
+                        <textarea name="content" id="content" class="form-control editor" cols="10" rows="20">{{ old('content') }}</textarea>
                         @error('content')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -66,14 +66,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Mô tả ngắn(tiếng Trung)</label>
-                        <textarea name="description_zh" class="form-control" cols="10" rows="10">{{ old('description_zh') }}</textarea>
+                        <textarea name="description_zh" class="form-control editor" cols="10" rows="10">{{ old('description_zh') }}</textarea>
                         @error('description_zh')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="name-china" class="form-label">Nội dung (tiếng Trung)</label>
-                        <textarea name="content_zh" class="form-control" cols="10" rows="20">{{ old('content_zh') }}</textarea>
+                        <textarea name="content_zh" class="form-control editor" cols="10" rows="20">{{ old('content_zh') }}</textarea>
                         @error('content_zh')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror

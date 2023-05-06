@@ -48,7 +48,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Nội dung</label>
-                        <textarea name="description" id="description" class="form-control" cols="10" rows="15">
+                        <textarea name="description" id="description" class="form-control editor" cols="10" rows="15">
                             {{ !empty($aboutUs->description) ? $aboutUs->description : old('description') }}
                         </textarea>
                         @error('description')
@@ -57,7 +57,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="description_zh" class="form-label">Nội dung (tiếng Trung)</label>
-                        <textarea name="description_zh" id="description_zh" class="form-control" cols="10" rows="15">
+                        <textarea name="description_zh" id="description_zh" class="form-control editor" cols="10" rows="15">
                             {{ !empty($aboutUs) ? $aboutUs->translate('zh')->description : old('description_zh') }}
                         </textarea>
                         @error('description_zh')

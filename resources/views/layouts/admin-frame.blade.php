@@ -38,7 +38,7 @@
     <script>
         var editor_config = {
             path_absolute: "http://localhost/travel-blog/",
-            selector: 'textarea',
+            selector: 'textarea.editor',
             relative_urls: false,
             plugins: [
                 "advlist autolink lists link image charmap print preview hr anchor pagebreak",

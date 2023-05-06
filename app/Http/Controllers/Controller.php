@@ -22,9 +22,9 @@ class Controller extends BaseController
         toastr()->success(self::TOAST_UPDATE_SUCCESS);
     }
 
-    public function toastCreateSuccess()
+    public function toastCreateSuccess($message = self::TOAST_CREATE_SUCCESS)
     {
-        toastr()->success(self::TOAST_CREATE_SUCCESS);
+        toastr()->success($message);
     }
 
     public function toastDeleteSuccess()
