@@ -18,7 +18,7 @@ class SetLocale
     {
         $language = 'vie';
         if ($request->get('language')) {
-            $language = $request->get('language');
+            $language = in_array($request->get('language'), ['vie', 'zh']) ? $request->get('language') : 'vie';
             session()->put('language', $language);
         } elseif (session('language')) {
             $language = session('language');

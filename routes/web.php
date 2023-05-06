@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminAboutUsController;
 use App\Http\Controllers\AdminBannerController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminMediaController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminUserController;
@@ -41,6 +42,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('posts/index', [AdminPostController::class, 'index'])->name('posts.index');
         Route::get('posts/create', [AdminPostController::class, 'create'])->name('posts.create');
         Route::post('posts/store', [AdminPostController::class, 'store'])->name('posts.store');
+        Route::get('posts/show/{id}', [AdminPostController::class, 'show'])->name('posts.show');
+        Route::post('posts/update/{id}', [AdminPostController::class, 'update'])->name('posts.update');
+        Route::get('posts/destroy/{id}', [AdminPostController::class, 'destroy'])->name('posts.destroy');
 
         Route::get('users/show', [AdminUserController::class, 'show'])->name('users.show');
         Route::post('users/update', [AdminUserController::class, 'update'])->name('users.update');
@@ -54,6 +58,12 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('about-us/create', [AdminAboutUsController::class, 'create'])->name('about_us.create');
         Route::post('about-us/store', [AdminAboutUsController::class, 'store'])->name('about_us.store');
+
+        Route::get('medias/create', [AdminMediaController::class, 'create'])->name('medias.create');
+        Route::post('medias/store', [AdminMediaController::class, 'store'])->name('medias.store');
+        Route::get('medias/show/{id}', [AdminMediaController::class, 'show'])->name('medias.show');
+        Route::post('medias/update/{id}', [AdminMediaController::class, 'update'])->name('medias.update');
+        Route::get('medias/destroy/{id}', [AdminMediaController::class, 'destroy'])->name('medias.destroy');
     });
 });
 

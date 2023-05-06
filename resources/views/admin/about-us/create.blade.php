@@ -23,6 +23,30 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label for="phone" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" name="phone"
+                            value="{{ !empty($aboutUs->phone) ? $aboutUs->phone : old('phone') }}" id="phone">
+                        @error('phone')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" name="email"
+                            value="{{ !empty($aboutUs->email) ? $aboutUs->email : old('email') }}" id="email">
+                        @error('email')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Địa chỉ</label>
+                        <input type="text" class="form-control" name="address"
+                            value="{{ !empty($aboutUs->address) ? $aboutUs->address : old('address') }}" id="address">
+                        @error('address')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
                         <label for="description" class="form-label">Nội dung</label>
                         <textarea name="description" id="description" class="form-control" cols="10" rows="15">
                             {{ !empty($aboutUs->description) ? $aboutUs->description : old('description') }}
@@ -32,7 +56,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="description_zh" class="form-label">Nội dung</label>
+                        <label for="description_zh" class="form-label">Nội dung (tiếng Trung)</label>
                         <textarea name="description_zh" id="description_zh" class="form-control" cols="10" rows="15">
                             {{ !empty($aboutUs) ? $aboutUs->translate('zh')->description : old('description_zh') }}
                         </textarea>

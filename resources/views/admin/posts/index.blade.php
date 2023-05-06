@@ -23,7 +23,7 @@
                 <option>3</option>
                 <option>4</option>
             </select>
-            <button type="button" class="btn btn-primary ms-2">Thao tác</button>
+            <button type="button" class="btn btn-primary ms-2">Action</button>
         </div>
         <hr>
         <div class="table-responsive">
@@ -46,13 +46,19 @@
                             <td>{{ $item->created_at }}</td>
                             <td><img src="{{ Asset($item->image) }}" class="img-fluid" width="150" height="150"></td>
                             <td>{{ $item->translate('vie')->name }}</td>
-                            <td>{{ $item->category->translate(app()->getLocale())->name }}</td>
+                            <td>{{ $item->category->translate('vie')->name }}</td>
                             <td>
                                 {{ $item->active == 'on' ? 'Hiển thị' : 'Không hiển thị' }}
                             </td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="">Sửa</a>
-                                <a class="btn btn-sm btn-danger" href="">Xóa</a>
+                                <a href="{{ Route('admin.posts.show', $item->id) }}"
+                                    class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip"
+                                    data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                <a href="{{ Route('admin.posts.destroy', $item->id) }}"
+                                    class="btn btn-danger btn-sm rounded-0 text-white"
+                                    onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="button"
+                                    data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                        class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

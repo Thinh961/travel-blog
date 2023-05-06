@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\AboutUs;
+namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AboutUsRequest extends FormRequest
+class PostUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +25,13 @@ class AboutUsRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'address' => 'required|max:255',
-            'phone' => 'required|numeric',
-            'email' => 'required|email',
             'name_zh' => 'required|max:255',
-            'description_zh' => 'required|max:255',
-            'description' => 'required|max:255',
+            'description' => 'required',
+            'description_zh' => 'required',
+            'content' => 'required',
+            'content_zh' => 'required',
             'image' => 'image',
+            'category_id' => 'required',
         ];
     }
 
@@ -40,23 +40,21 @@ class AboutUsRequest extends FormRequest
         return [
             'required' => ':attribute không để trống',
             'max' => ':attribute vượt quá tối đa :max kí tự',
-            'image' => ':attribute không đúng định dạng',
-            'email' => ':attribute không đúng định dạng',
-            'numeric' => ':attribute không đúng định dạng',
+            'image' => ':attribute không đúng định dạng ảnh',
         ];
     }
 
     public function attributes()
     {
         return [
-            'name' => 'Tiêu đề',
-            'name_zh' => 'Tiêu đề (tiếng Trung)',
+            'name' => 'Tiêu đề bài viết',
+            'name_zh' => 'Tiêu đề bài viết (tiếng Trung)',
             'description' => 'Mô tả ngắn',
             'description_zh' => 'Mô tả ngắn (tiếng Trung)',
-            'image' => 'Ảnh',
-            'email' => 'Email',
-            'address' => 'Địa chỉ',
-            'phone' => 'Số điện thoại',
+            'content' => 'Nội dung',
+            'content_zh' => 'Nội dung (tiếng Trung)',
+            'image' => 'Ảnh bài viết',
+            'category_id' => 'Danh mục bài viết'
         ];
     }
 }
