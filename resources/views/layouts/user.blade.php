@@ -62,8 +62,8 @@
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     @foreach ($medias as $item)
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
-                            href="{{ $item->link }}">{!! $item->icon !!} </a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
+                        href="{{ $item->link }}">{!! $item->icon !!} </a>
                     @endforeach
                 </div>
             </div>
@@ -81,7 +81,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
-        
+
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
@@ -96,8 +96,10 @@
                             <a href="team.html" class="dropdown-item">Travel Guides</a>
                             <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                             <div class="dropdown">
-                                <a href="#" class="dropdown-item dropdown-toggle" id="subMenuDropdown" data-bs-toggle="dropdown">404 Page</a>
-                                <div class="dropdown-menu dropdown-menu-right sub-menu" aria-labelledby="subMenuDropdown">
+                                <a href="#" class="dropdown-item dropdown-toggle" id="subMenuDropdown"
+                                    data-bs-toggle="dropdown">404 Page</a>
+                                <div class="dropdown-menu dropdown-menu-right sub-menu"
+                                    aria-labelledby="subMenuDropdown">
                                     <a class="dropdown-item" href="405.html">405</a>
                                     <a class="dropdown-item" href="406.html">406</a>
                                 </div>
@@ -108,21 +110,24 @@
                 </div>
             </div>
         </nav>
-        
 
         <script>
-            $(document).ready(function() {
-              // Ẩn tất cả các menu con trừ menu 404 ban đầu
-              $('.sub-menu').hide();
-              // Hiện các menu con khi rê chuột vào menu cha tương ứng
-              $('#subMenuDropdown').mouseenter(function() {
-                $(this).next('.dropdown-menu').show();
-              }).mouseleave(function() {
-                $(this).next('.dropdown-menu').hide();
-              });
+            $(document).ready(function () {
+                // Ẩn tất cả các menu con trừ menu 404 ban đầu
+                $('.sub-menu').hide();
+
+                // Hiện các menu con khi rê chuột vào menu cha tương ứng
+                $('#subMenuDropdown').mouseenter(function () {
+                    $(this).next('.dropdown-menu').show();
+                });
+
+                // Ẩn các menu con khi chuột di chuyển ra khỏi cả menu cha và menu con
+                $('.sub-menu').mouseleave(function () {
+                    $('.sub-menu').hide();
+                });
             });
         </script>
-        
+
 
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
@@ -189,8 +194,8 @@
                     <h4 class="text-white mb-3">Media</h4>
                     <div class="d-flex pt-2">
                         @foreach ($medias as $item)
-                            <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
-                                href="{{ $item->link }}">{!! $item->icon !!} </a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
+                            href="{{ $item->link }}">{!! $item->icon !!} </a>
                         @endforeach
                     </div>
                 </div>
@@ -199,23 +204,23 @@
     </div>
 
     <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s"">
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; Bản quyền thuộc về Laibaoxinchuan
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="{{ Route('home') }}">Home</a>
-                            <a href="#">Cookies</a>
-                            <a href="#">Help</a>
-                            <a href="#">FAQ</a>
-                        </div>
+        <div class=" container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; Bản quyền thuộc về Laibaoxinchuan
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="{{ Route('home') }}">Home</a>
+                        <a href="#">Cookies</a>
+                        <a href="#">Help</a>
+                        <a href="#">FAQ</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     <!-- Footer End -->
