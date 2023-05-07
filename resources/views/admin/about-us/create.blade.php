@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">About Us</h6>
+                <h4 class="mb-4">ABOUT US</h4>
                 <form action="{{ Route('admin.about_us.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">

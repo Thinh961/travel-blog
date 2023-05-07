@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Thêm mới danh mục</h6>
+                <h6 class="mb-4">THÊM MỚI DANH MỤC</h6>
                 <form method="POST" action="{{ Route('admin.categories.store') }}">
                     @csrf
                     <div class="mb-3">

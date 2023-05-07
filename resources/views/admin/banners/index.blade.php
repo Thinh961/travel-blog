@@ -1,9 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="col-xl-12">
-        <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Danh sách Banner</h6>
+    <div class="bg-light rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <h4 class="col-md-6 mb-0">DANH SÁCH BANNER</h4>
+        </div>
+        <hr>
+
+        <div class="table-responsive">
             <table class="table table-hover align-middle">
                 <thead>
                     <tr>
@@ -33,4 +37,5 @@
             </table>
             {{ $banners->render('pagination') }}
         </div>
-    @endsection
+    </div>
+@endsection

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Cập nhật Banner</h6>
+                <h4 class="mb-4">CẬP NHẬT BANNER</h4>
                 <form action="{{ Route('admin.banners.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">

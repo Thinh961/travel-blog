@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Cập nhật Mạng xã hội</h6>
+                <h4 class="mb-4">CẬP NHẬT MẠNG XÃ HỘI</h4>
                 <form method="POST" action="{{ Route('admin.medias.update', $media->id) }}">
                     @csrf
                     <div class="mb-3">
@@ -28,7 +28,7 @@
         </div>
         <div class="col-md-6">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Danh sách Mạng xã hội</h6>
+                <h4 class="mb-4">DANH SÁCH MẠNG XÃ HỘI</h4>
                 <table class="table table-hover">
                     <thead>
                         <tr>

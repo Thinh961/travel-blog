@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Cập nhật danh mục</h6>
+                <h6 class="mb-4">CẬP NHẬT DANH MỤC</h6>
                 <form method="POST" action="{{ Route('admin.categories.update', $category->id) }}">
                     @csrf
                     <div class="mb-3">

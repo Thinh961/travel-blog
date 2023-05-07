@@ -1,9 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="col-xl-12">
-        <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Danh sách danh mục</h6>
+    <div class="bg-light rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <h4 class="col-md-6 mb-0">DANH SÁCH LIÊN HỆ</h4>
+            <div class="d-flex">
+                <input class="form-control bg-transparent" type="text" placeholder="Search">
+                <button type="button" class="btn btn-primary ms-2">Search</button>
+            </div>
+        </div>
+        <hr>
+
+        <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -43,4 +51,5 @@
             </table>
             {{ $contacts->render('pagination') }}
         </div>
-    @endsection
+    </div>
+@endsection

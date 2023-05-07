@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Thông tin liên hệ</h6>
+                <h4 class="mb-4">THÔNG TIN LIÊN HỆ</h4>
                 <div class="mb-3">
                     <label for="name" class="form-label">Họ và tên</label>
                     <input type="text" name="name" value="{{ $contact->fullname }}" class="form-control" id="name">
