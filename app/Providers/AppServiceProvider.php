@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\AboutUs;
+use App\Models\Category;
 use App\Models\Media;
 use Illuminate\Support\ServiceProvider;
 use App\Traits\CategoryTrait;
@@ -27,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $categories = CategoryTrait::getNestedCategories(0, 0);
+        $categories = Category::with('descendants')->get();
         $aboutUs = AboutUs::first();
         $medias = Media::all();
         View::share(compact('categories', 'medias', 'aboutUs'));

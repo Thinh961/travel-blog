@@ -19,4 +19,37 @@ class Category extends Model implements TranslatableContract
     {
         return $this->hasMany(Category::class, 'parent_id');
     }
+
+    public function getChildrenRecursive()
+    {
+        $children = $this->children;
+        foreach ($children as $child) {
+            $child->children = $child->getChildrenRecursive();
+        }
+
+        return $children;
+    }
+
+    public function descendants()
+    {
+        return $this->hasMany(Category::class, 'parent_id')->with('descendants');
+    }
+
+    public static function buildCategoryTree($categories, $parentId = null)
+    {
+        $categoriesTree = [];
+        foreach ($categories as $category) {
+            if ($category->parent_id == $parentId) {
+                $categoriesTree[] = $category;
+
+                $children = self::buildCategoryTree($categories, $category->id);
+
+                if ($children) {
+                    $category->children = $children;
+                }
+            }
+        }
+
+        return $categoriesTree;
+    }
 }
