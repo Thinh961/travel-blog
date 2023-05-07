@@ -54,9 +54,9 @@
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     <small class="me-3 text-light"><i
-                            class="fa fa-map-marker-alt me-2"></i>{{ $aboutUs->address }}</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>{{ $aboutUs->phone }}</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>{{ $aboutUs->email }}</small>
+                            class="fa fa-map-marker-alt me-2"></i>{{ $aboutUs ? $aboutUs->address : '' }}</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>{{ $aboutUs ? $aboutUs->email : '' }}</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
@@ -162,9 +162,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $aboutUs->address }}</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $aboutUs->phone }}</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $aboutUs->email }}</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $aboutUs ? $aboutUs->address : '' }}</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $aboutUs ? $aboutUs->email : '' }}</p>
 
                 </div>
                 <div class="col-lg-3 col-md-6">
