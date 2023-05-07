@@ -4,10 +4,13 @@
     <div class="bg-light rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-2">
             <h4 class="col-md-6 mb-0">DANH SÁCH BÀI VIẾT</h4>
-            <div class="d-flex">
-                <input class="form-control bg-transparent" type="text" placeholder="Search">
-                <button type="button" class="btn btn-primary ms-2">Search</button>
-            </div>
+            <form action="{{ Route('admin.posts.index') }}">
+                <div class="d-flex">
+                    <input class="form-control bg-transparent" type="text" name="keyword"
+                        value="{{ request()->input('keyword') }}" placeholder="Search">
+                        <input type="submit" name="btn-search" value="Tìm kiếm" class="btn btn-primary">
+                </div>
+            </form>
         </div>
         <hr>
         <div class="d-flex col-md-12">

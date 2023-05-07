@@ -26,9 +26,21 @@ class AdminPostController extends Controller
         $this->uploadService = $uploadService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = ($request->keyword);
         $posts = Post::with('category.translations')->paginate(10);
+        if (!empty($keyword)) {
+            $posts = Post::with(['category.translations', 'translations'])
+            ->whereHas('translations', function ($query) use ($keyword) {
+                $query->where('name', 'like', '%' . $keyword . '%');
+            })
+            ->orWhereHas('category.translations', function ($query) use ($keyword) {
+                $query->where('name', 'like', '%' . $keyword . '%');
+            })
+            ->paginate(10);
+        }
+
         return view('admin.posts.index', compact('posts'));
     }
 

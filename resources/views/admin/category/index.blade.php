@@ -4,10 +4,6 @@
     <div class="bg-light rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-2">
             <h4 class="col-md-6 mb-0">DANH SÁCH DANH MỤC</h4>
-            <div class="d-flex">
-                <input class="form-control bg-transparent" type="text" placeholder="Search">
-                <button type="button" class="btn btn-primary ms-2">Search</button>
-            </div>
         </div>
         <hr>
 
