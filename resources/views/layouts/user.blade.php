@@ -32,6 +32,9 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ Asset('user/css/style.css') }}" rel="stylesheet">
+    <!-- Tải thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -78,7 +81,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
-
+        
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
@@ -87,18 +90,39 @@
                     <a href="package.html" class="nav-item nav-link">Packages</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
+                        <div class="dropdown-menu m-0" aria-labelledby="pagesDropdown">
                             <a href="destination.html" class="dropdown-item">Destination</a>
                             <a href="booking.html" class="dropdown-item">Booking</a>
                             <a href="team.html" class="dropdown-item">Travel Guides</a>
                             <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-item dropdown-toggle" id="subMenuDropdown" data-bs-toggle="dropdown">404 Page</a>
+                                <div class="dropdown-menu dropdown-menu-right sub-menu" aria-labelledby="subMenuDropdown">
+                                    <a class="dropdown-item" href="405.html">405</a>
+                                    <a class="dropdown-item" href="406.html">406</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <a href="{{ Route('contact.index') }}" class="nav-item nav-link">Liên hệ</a>
                 </div>
             </div>
         </nav>
+        
+
+        <script>
+            $(document).ready(function() {
+              // Ẩn tất cả các menu con trừ menu 404 ban đầu
+              $('.sub-menu').hide();
+              // Hiện các menu con khi rê chuột vào menu cha tương ứng
+              $('#subMenuDropdown').mouseenter(function() {
+                $(this).next('.dropdown-menu').show();
+              }).mouseleave(function() {
+                $(this).next('.dropdown-menu').hide();
+              });
+            });
+        </script>
+        
 
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
