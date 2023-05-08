@@ -8,6 +8,7 @@ use App\Models\Media;
 use Illuminate\Support\ServiceProvider;
 use App\Traits\CategoryTrait;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\App;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,9 +29,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $categories = Category::with('descendants')->get();
-        $aboutUs = AboutUs::first();
-        $medias = Media::all();
-        View::share(compact('categories', 'medias', 'aboutUs'));
+        if(!App::runningInConsole()) {
+            $categories = Category::with('descendants')->get();
+            $aboutUs = AboutUs::first();
+            $medias = Media::all();
+            View::share(compact('categories', 'medias', 'aboutUs'));
+        }
     }
 }
