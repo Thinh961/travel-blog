@@ -19,7 +19,6 @@ class CreateAboutUsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
-            $table->string('active')->default('on');
             $table->timestamps();
         });
     }

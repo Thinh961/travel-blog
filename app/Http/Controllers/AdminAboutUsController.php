@@ -35,7 +35,6 @@ class AdminAboutUsController extends Controller
     {
         $aboutUs = AboutUs::first();
         $data = [
-            'active' => $request->active ?? self::STATUS_OFF,
             'phone' => $request->phone,
             'email' => $request->email,
             'address' => $request->address,

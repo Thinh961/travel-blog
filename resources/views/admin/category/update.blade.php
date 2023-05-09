@@ -33,11 +33,6 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-check form-switch mb-2">
-                        <input class="form-check-input" type="checkbox" name="active" id="active"
-                            {{ $category->active == 'on' ? 'checked' : '' }}>
-                        <label class="form-check-label" for="active">Kích hoạt</label>
-                    </div>
                     <button type="submit" class="btn btn-primary">Cập nhật</button>
                 </form>
             </div>
