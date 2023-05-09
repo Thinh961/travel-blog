@@ -55,15 +55,17 @@
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     <small class="me-3 text-light"><i
                             class="fa fa-map-marker-alt me-2"></i>{{ $aboutUs ? $aboutUs->address : '' }}</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>{{ $aboutUs ? $aboutUs->email : '' }}</small>
+                    <small class="me-3 text-light"><i
+                            class="fa fa-phone-alt me-2"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</small>
+                    <small class="text-light"><i
+                            class="fa fa-envelope-open me-2"></i>{{ $aboutUs ? $aboutUs->email : '' }}</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     @foreach ($medias as $item)
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
-                        href="{{ $item->link }}">{!! $item->icon !!} </a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
+                            href="{{ $item->link }}">{!! $item->icon !!} </a>
                     @endforeach
                 </div>
             </div>
@@ -71,76 +73,62 @@
     </div>
     <!-- Topbar End -->
 
-
     <!-- Navbar & Hero Start -->
     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-            <a href="{{ Route('home') }}" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>Laibaoxinchuan</h1>
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-4 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>laibaoxinchuan</h1>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Services</a>
-                    <a href="package.html" class="nav-item nav-link">Packages</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0" aria-labelledby="pagesDropdown">
-                            <a href="destination.html" class="dropdown-item">Destination</a>
-                            <a href="booking.html" class="dropdown-item">Booking</a>
-                            <a href="team.html" class="dropdown-item">Travel Guides</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <div class="dropdown">
-                                <a href="#" class="dropdown-item dropdown-toggle" id="subMenuDropdown"
-                                    data-bs-toggle="dropdown">404 Page</a>
-                                <div class="dropdown-menu dropdown-menu-right sub-menu"
-                                    aria-labelledby="subMenuDropdown">
-                                    <a class="dropdown-item" href="405.html">405</a>
-                                    <a class="dropdown-item" href="406.html">406</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="{{ Route('contact.index') }}" class="nav-item nav-link">Liên hệ</a>
-                </div>
+            <div class="navbar-nav py-0 ms-auto">
+                <ul id="nav">
+                    <li><a class="nav-item nav-link dropdown-toggle" href="#">Sub Menu1</a>
+                        <ul>
+                            <li><a href="#">Test Sub Item</a></li>
+                            <li><a href="#">Test Sub Item</a></li>
+                            <li><a class="dropdown-toggle" href="#">Sub Menu2</a>
+                                <ul>
+                                    <li><a href="#">Sub Menu2.1</a>
+                                    <li><a href="#">Sub Menu2.2</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-item nav-link dropdown-toggle" href="#">Sub Menu1</a>
+                        <ul>
+                            <li><a href="#">Test Sub Item</a></li>
+                            <li><a href="#">Test Sub Item</a></li>
+                            <li><a class="dropdown-toggle" href="#">Sub Menu2</a>
+                                <ul>
+                                    <li><a href="#">Sub Menu2.1</a>
+                                    <li><a href="#">Sub Menu2.2</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-item nav-link active" href="index.html">Home</a></li>
+                    <li><a class="nav-item nav-link" href="about.html">About</a></li>
+                    <li><a class="nav-item nav-link" href="service.html">Services</a></li>
+                    <li><a class="nav-item nav-link" href="{{ Route('contact.index') }}">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="d-flex">
+                <input class="form-control border-0 rounded-pill position-relative home-search" type="text"
+                    placeholder="Tìm kiếm">
+                <button type="button"
+                    class="btn btn-primary rounded-pill position-absolute home-search-button">Search</button>
             </div>
         </nav>
-
-        <script>
-            $(document).ready(function () {
-                // Ẩn tất cả các menu con trừ menu 404 ban đầu
-                $('.sub-menu').hide();
-
-                // Hiện các menu con khi rê chuột vào menu cha tương ứng
-                $('#subMenuDropdown').mouseenter(function () {
-                    $(this).next('.dropdown-menu').show();
-                });
-
-                // Ẩn các menu con khi chuột di chuyển ra khỏi cả menu cha và menu con
-                $('.sub-menu').mouseleave(function () {
-                    $('.sub-menu').hide();
-                });
-            });
-        </script>
 
 
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Chào mừng đến với Laibaoxinchuan
-                        </h1>
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">Enjoy Your Vacation With Us</h1>
+                        <p class="fs-4 text-white mb-4 animated slideInDown">Tempor erat elitr rebum at clita diam amet
+                            diam et eos erat ipsum lorem sit</p>
                         <div class="position-relative w-75 mx-auto animated slideInDown">
-                            <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text"
-                                placeholder="Eg: laibaoxinchuan">
-                            <button type="button"
-                                class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
-                                style="margin-top: 7px;">Search</button>
+
                         </div>
                     </div>
                 </div>
@@ -162,7 +150,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $aboutUs ? $aboutUs->address : '' }}</p>
+                    <p class="mb-2"><i
+                            class="fa fa-map-marker-alt me-3"></i>{{ $aboutUs ? $aboutUs->address : '' }}</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $aboutUs ? $aboutUs->email : '' }}</p>
 
@@ -194,8 +183,8 @@
                     <h4 class="text-white mb-3">Media</h4>
                     <div class="d-flex pt-2">
                         @foreach ($medias as $item)
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
-                            href="{{ $item->link }}">{!! $item->icon !!} </a>
+                            <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
+                                href="{{ $item->link }}">{!! $item->icon !!} </a>
                         @endforeach
                     </div>
                 </div>
@@ -205,22 +194,22 @@
 
     <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s"">
         <div class=" container">
-        <div class="copyright">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; Bản quyền thuộc về Laibaoxinchuan
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <div class="footer-menu">
-                        <a href="{{ Route('home') }}">Home</a>
-                        <a href="#">Cookies</a>
-                        <a href="#">Help</a>
-                        <a href="#">FAQ</a>
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; Bản quyền thuộc về Laibaoxinchuan
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="{{ Route('home') }}">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FAQ</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     </div>
     <!-- Footer End -->
