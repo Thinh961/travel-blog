@@ -245,6 +245,7 @@
 /*** Destination ***/
 .destination img {
     transition: .5s;
+    width: 100%;
 }
 
 .destination a:hover img {
@@ -506,4 +507,12 @@
     margin-left: 100%;
     margin-top: -35px;
     display: block;
+}
+
+.dots {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
 }
