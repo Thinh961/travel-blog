@@ -66,7 +66,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Mô tả ngắn(tiếng Trung)</label>
-                        <textarea name="description_zh editor" class="form-control editor" cols="10" rows="10">{{ $post->translate('zh')->description }}</textarea>
+                        <textarea name="description_zh" class="form-control editor" cols="10" rows="10">{{ $post->translate('zh')->description }}</textarea>
                         @error('description_zh')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror

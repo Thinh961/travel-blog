@@ -29,8 +29,8 @@ class AboutUsRequest extends FormRequest
             'phone' => 'required|numeric',
             'email' => 'required|email',
             'name_zh' => 'required|max:255',
-            'description_zh' => 'required|max:255',
-            'description' => 'required|max:255',
+            'description_zh' => 'required',
+            'description' => 'required',
             'image' => 'image',
         ];
     }

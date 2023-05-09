@@ -28,20 +28,26 @@ class AdminPostController extends Controller
 
     public function index(Request $request)
     {
-        $keyword = ($request->keyword);
-        $posts = Post::with('category.translations')->paginate(10);
-        if (!empty($keyword)) {
-            $posts = Post::with(['category.translations', 'translations'])
-            ->whereHas('translations', function ($query) use ($keyword) {
-                $query->where('name', 'like', '%' . $keyword . '%');
-            })
-            ->orWhereHas('category.translations', function ($query) use ($keyword) {
-                $query->where('name', 'like', '%' . $keyword . '%');
-            })
-            ->paginate(10);
+        $keyword = $request->keyword;
+        $active = $request->active;
+
+        $posts = Post::with(['category.translations', 'translations'])
+            ->where(function ($query) use ($keyword) {
+                $query->whereHas('translations', function ($query) use ($keyword) {
+                    $query->where('name', 'like', '%' . $keyword . '%');
+                })->orWhereHas('category.translations', function ($query) use ($keyword) {
+                    $query->where('name', 'like', '%' . $keyword . '%');
+                });
+            });
+
+        if (!empty($active)) {
+            $posts = $posts->where('active', $request->active);
         }
 
-        return view('admin.posts.index', compact('posts'));
+        $posts = $posts->paginate(10);
+        $posts->appends(['keyword' => $keyword, 'active' => $active]);
+
+        return view('admin.posts.index', compact('posts', 'active'));
     }
 
     public function create()

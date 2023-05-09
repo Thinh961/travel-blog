@@ -5,7 +5,7 @@
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                 <div class="position-relative h-100">
                     <img class="img-fluid position-absolute w-100 h-100"
-                        src="{{ $aboutUs ? Asset($aboutUs->image) : Asset('user/img/about.jpg') }}"  style="object-fit: cover;">
+                        src="{{ $aboutUs && !empty($aboutUs->image) ? Asset($aboutUs->image) : Asset('user/img/about.jpg') }}"  style="object-fit: cover;">
                 </div>
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
