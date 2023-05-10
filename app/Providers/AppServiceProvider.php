@@ -30,7 +30,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         if(!App::runningInConsole()) {
-            $categories = Category::with('descendants')->get();
+            $categories = Category::where('parent_id', 0)->with('descendants')->get();
+            // echo '<pre>';
+            // print_r(json_encode($categories));
+            // echo '<pre>';
+            // die;
             $aboutUs = AboutUs::first();
             $medias = Media::all();
             View::share(compact('categories', 'medias', 'aboutUs'));

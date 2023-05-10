@@ -239,6 +239,7 @@
 /*** Destination ***/
 .destination img {
     transition: 0.5s;
+    width: 100%;
 }
 
 .destination a:hover img {
@@ -337,20 +338,6 @@
         width: 300px;
     }
 } */
-
-.testimonial-carousel .owl-item .testimonial-item,
-.testimonial-carousel .owl-item.center .testimonial-item * {
-    transition: 0.5s;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-item {
-    background: var(--primary) !important;
-    border-color: var(--primary) !important;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-item * {
-    color: #ffffff !important;
-}
 
 .testimonial-carousel .owl-dots {
     margin-top: 24px;
@@ -461,18 +448,20 @@
     display: inline-block;
     width: 100%;
     line-height: 35px;
-    padding: 0;
+    padding: 0px 7px 0px 7px;
     text-decoration: none;
     color: #ffffff;
+    
 }
 
 #nav li li {
     float: left;
+    padding: 0;
 }
 
 #nav li li a {
     display: block;
-    font-size: 12px;
+    font-size: 15px;
     width: 150px;
 }
 
@@ -489,6 +478,9 @@
     display: none;
     background-color: var(--primary);
 }
+#nav li ul {
+  padding: 0px 20px 0px 20px;
+}
 
 /*--- Hide Sub Sublists ---*/
 #nav li:hover ul ul {
@@ -498,22 +490,16 @@
 /*--- Sublevel UL's display and position on hover ---*/
 #nav li:hover ul {
     display: block;
+
 }
 
-#nav li li:hover ul {
+#nav li li:hover > ul {
     margin-left: 100%;
     margin-top: -35px;
     display: block;
+
 }
 
-/* Search input*/
-.home-search {
-    width: 350px !important;
-    padding: 7px;
-}
-
-.home-search-button {
-    margin-top: 7px;
-    right: 45px;
-    top: -2px;
+.search-input {
+    width: 500px;
 }
