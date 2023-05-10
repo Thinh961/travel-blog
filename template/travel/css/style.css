@@ -340,20 +340,6 @@
     }
 } */
 
-.testimonial-carousel .owl-item .testimonial-item,
-.testimonial-carousel .owl-item.center .testimonial-item * {
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-item {
-    background: var(--primary) !important;
-    border-color: var(--primary) !important;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-item * {
-    color: #FFFFFF !important;
-}
-
 .testimonial-carousel .owl-dots {
     margin-top: 24px;
     display: flex;
@@ -515,4 +501,213 @@
     white-space: nowrap;
     overflow: hidden !important;
     text-overflow: ellipsis;
+}
+/* ==================================== */
+/* ==================================== */
+
+.menu {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.menu ul {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu li::before {
+  content: none;
+  padding: 0;
+}
+
+.menu li ul {
+  display: block;
+}
+
+.menu a {
+  display: block;
+  height: 3em;
+  line-height: 3em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.menu a[href="#"]::before {
+  content: "▸";
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  top: 0.75em;
+  left: 0.375em;
+  line-height: 1.5em;
+  text-align: center;
+  transition: transform 0.25s;
+}
+
+.menu a[href="#"].toggled::before {
+  transform: rotate(90deg);
+}
+
+/* .column-menu-right {
+  display: flex;
+  flex: 1;
+  height: 3em;
+}
+
+.column-menu-right {
+  justify-content: flex-end;
+} */
+
+.menu-icons a {
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 960px) {
+  .menu-drawer {
+    display: block;
+    width: 100%;
+    height: calc(100vh - 6em) !important;
+    position: absolute;
+    top: 3em;
+  }
+}
+.menu-drawer.toggled {
+  transform: translate(-100%, 0);
+}
+
+@media (min-width: 960px) {
+  .menu-drawer.toggled {
+    transform: translate(0%, 0);
+  }
+}
+.menu-drawer ul {
+  flex-direction: column;
+}
+
+@media (min-width: 960px) {
+  .menu-drawer ul {
+    flex-direction: row;
+  }
+}
+@media (min-width: 960px) {
+  .menu-drawer li {
+    position: relative;
+  }
+}
+.menu-drawer li ul {
+  visibility: hidden;
+  height: 0;
+  min-width: 100%;
+  opacity: 0;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+@media (min-width: 960px) {
+  .menu-drawer li ul {
+    position: absolute;
+    top: 3em;
+    /* right: 0; */
+  }
+}
+.menu-drawer li ul.toggled {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (min-width: 960px) {
+  .menu-drawer li ul ul {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .page.opened {
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (min-width: 960px) {
+  .menu ul ul {
+    border-radius: 0.5em;
+    background-color: #fff;
+  }
+}
+@media (min-width: 960px) {
+  .menu ul ul.toggled {
+    margin-top: 0.375em;
+  }
+}
+.menu ul ul ul {
+  background-color: rgba(83, 146, 99, 0.188);
+  /* border-bottom-left-radius: 10px; */
+}
+
+@media (min-width: 960px) {
+  .menu ul ul ul {
+    border-bottom-left-radius: 10px;
+    box-shadow: none;
+  }
+}
+.menu ul ul ul.toggled {
+  margin-top: auto;
+}
+
+/* .menu a.a-menu {
+    color: #fff;
+} */
+
+.menu a {
+  color: #000;
+}
+
+.menu a:hover,
+.menu a:focus {
+  color: #FFF;
+  background-color: var(--primary) !important;
+  border-bottom-left-radius: 10px;
+}
+
+.menu a:focus {
+  outline: none;
+}
+
+.menu a.toggled {
+  color: #FFF;
+  background-color: var(--primary);
+  border-bottom-left-radius: 10px;
+}
+
+@media (max-width: 960px) {
+  .menu-drawer {
+    background-color: #FFF;
+    box-shadow: 0 0.125em 0.5em rgba(0, 51, 79, 0.0625), 0 0.25em 1em rgba(0, 51, 79, 0.125), inset 0 0 0 1px rgba(0, 51, 79, 0.125);
+  }
+}
+.menu {
+  /* width: 100%;
+  margin-top: 3em;
+  position: absolute;
+  z-index: 1; */
+}
+
+.menu.scrolled {
+  margin-top: 0;
+  position: fixed;
+}
+
+.menu.animated {
+  background-color: #000;
 }
