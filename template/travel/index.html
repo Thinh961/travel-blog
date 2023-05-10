@@ -83,43 +83,12 @@
                 <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>laibaoxinchuan</h1>
             </a>
             <div class="navbar-nav py-0">
-                <!-- <ul id="nav">
-                    <li><a class="nav-item nav-link dropdown-toggle" href="#">Sub Menu1</a>
-                        <ul>
-                            <li><a href="#">Test Sub Item</a></li>
-                            <li><a href="#">Test Sub Item</a></li>
-                            <li><a class="dropdown-toggle" href="#">Sub Menu2</a>
-                                <ul>
-                                    <li><a href="#">Sub Menu2.1</a>
-                                    <li><a href="#">Sub Menu2.2</a>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-item nav-link dropdown-toggle" href="#">Sub Menu1</a>
-                        <ul>
-                            <li><a href="#">Test Sub Item</a></li>
-                            <li><a href="#">Test Sub Item</a></li>
-                            <li><a class="dropdown-toggle" href="#">Sub Menu2</a>
-                                <ul>
-                                    <li><a href="#">Sub Menu2.1</a>
-                                    <li><a href="#">Sub Menu2.2</a>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-item nav-link active" href="index.html">Home</a></li>
-                    <li><a class="nav-item nav-link" href="about.html">About</a></li>
-                    <li><a class="nav-item nav-link" href="service.html">Services</a></li>
-                    <li><a class="nav-item nav-link" href="package.html">Packages</a></li>
-                </ul> -->
-
 
                 <div class="menu" id="menu">
                     <div class="column-menu-right ms-auto">
                         <nav class="menu-drawer" id="menu-drawer">
                             <ul>
-                                <li><a class="a-menu" href="#">Work</a>
+                                <li><a class="a-menu" href="#">Menu 1</a>
                                     <ul>
                                         <li><a href="#">Project 1</a>
                                             <ul>
@@ -129,12 +98,15 @@
                                                             <ul>
                                                                 <li><a href="#">Project 1.1.1.1</a>
                                                                     <ul>
-                                                                        <li><a href="#link">Project
-                                                                                1.1.1.1.1</a></li>
-                                                                        <li><a href="#link">Project
-                                                                                1.1.1.1.2</a></li>
-                                                                        <li><a href="#link">Project
-                                                                                1.1.1.1.3</a></li>
+                                                                        <li><a href="#">Project 1.1.1.1.1</a>
+                                                                            <ul>
+                                                                                <li><a href="#link">Project 1.1.1.1.1.1</a></li>
+                                                                                <li><a href="#link">Project 1.1.1.1.2.2</a></li>
+                                                                                <li><a href="#link">Project 1.1.1.1.3.3</a></li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li><a href="#link">Project 1.1.1.1.2</a></li>
+                                                                        <li><a href="#link">Project1.1.1.1.3</a></li>
                                                                     </ul>
                                                                 <li><a href="#link">Project 1.1.1.2</a></li>
                                                                 <li><a href="#link">Project 1.1.1.3</a></li>
@@ -164,14 +136,14 @@
                             </li>
                             </li>
                             </ul>
-                            <li><a class="a-menu" href="#">Resume</a>
+                            <li><a class="a-menu" href="#">Menu 2</a>
                                 <ul>
                                     <li><a href="#link">Resume 1</a></li>
                                     <li><a href="#link">Resume 2</a></li>
                                     <li><a href="#link">Resume 3</a></li>
                                 </ul>
                             </li>
-                            <li><a class="a-menu" href="#">Contact</a>
+                            <li><a class="a-menu" href="#">Menu 3</a>
                                 <ul>
                                     <li><a href="#link">Contact 1</a></li>
                                     <li><a href="#link">Contact 2</a></li>
@@ -186,12 +158,7 @@
 
                 <script>
                     (function ($) {
-                        // Reverse
-                        // =============================================
                         $.fn.reverse = [].reverse;
-
-                        // jQuery Extended Family Selectors
-                        // =============================================
                         $.fn.cousins = function (filter) {
                             return $(this).parent().siblings().children(filter);
                         };
@@ -204,37 +171,27 @@
                             return $(this).siblings().children(filter);
                         };
 
-                        // Update
-                        // =============================================
                         $.fn.update = function () {
                             return $(this);
                         };
 
-                        // Dropdown
-                        // =============================================
                         $.fn.dropdown = function (options) {
-                            // Store object
                             var $this = $(this);
-
-                            // Settings
                             var settings = $.extend({
-                                    className: "toggled"
-                                },
+                                className: "toggled"
+                            },
                                 options
                             );
 
-                            // Simplify variable names
                             var className = settings.className;
 
-                            // List selectors
                             var $ul = $this.find("ul"),
                                 $li = $this.find("li"),
                                 $a = $this.find("a");
 
-                            // Menu selectors
-                            var $drawers = $a.next($ul), // All unordered lists after anchors are drawers
-                                $buttons = $drawers.prev($a), // All anchors previous to drawers are buttons
-                                $links = $a.not($buttons); // All anchors that are not buttons are links
+                            var $drawers = $a.next($ul),
+                                $buttons = $drawers.prev($a),
+                                $links = $a.not($buttons);
 
                             // Toggle menu on-click
                             $buttons.on("click", function () {
@@ -266,7 +223,7 @@
                                                 .css("display", "none")
                                                 .appendTo($drawer.parent()),
                                                 height = $clone.css("height", "auto").height() +
-                                                "px";
+                                                    "px";
                                             $clone.remove();
                                             $drawer.css("height", "").css("height", height);
                                         } else {
@@ -302,8 +259,7 @@
             <div class="position-relative w-50 mx-auto animated slideInDown">
                 <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text"
                     placeholder="Eg: laibaoxinchuan">
-                <button type="button"
-                    class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
+                <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
                     style="margin-top: 7px;">Search</button>
             </div>
         </nav>
