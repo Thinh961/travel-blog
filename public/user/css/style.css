@@ -451,7 +451,6 @@
     padding: 0px 7px 0px 7px;
     text-decoration: none;
     color: #ffffff;
-    
 }
 
 #nav li li {
@@ -479,7 +478,7 @@
     background-color: var(--primary);
 }
 #nav li ul {
-  padding: 0px 20px 0px 20px;
+    padding: 0px 20px 0px 20px;
 }
 
 /*--- Hide Sub Sublists ---*/
@@ -490,16 +489,42 @@
 /*--- Sublevel UL's display and position on hover ---*/
 #nav li:hover ul {
     display: block;
-
 }
 
 #nav li li:hover > ul {
     margin-left: 100%;
     margin-top: -35px;
     display: block;
-
 }
 
 .search-input {
     width: 500px;
+}
+
+.navbar.sticky-top #nav li a {
+    color: #14141f;
+}
+
+.navbar.sticky-top .search-input {
+    border: 1px solid #14141f;
+    border-radius: 30px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #808b8d;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0px;
+    right: 0;
+    top: 20px;
 }

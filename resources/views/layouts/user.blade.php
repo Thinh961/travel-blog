@@ -62,6 +62,34 @@
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
+                <div class="dropdown d-inline">
+                    <a class="dropdown-toggle" href="#" style="pointer-events: none;" id="Dropdown"
+                        role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        Ngôn ngữ
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="Dropdown">
+                        <li>
+                            <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['language' => 'vie']) }}">
+                                <i class="flag-united-kingdom flag"></i>
+                                Việt Nam
+                                @if (app()->getLocale() == 'vie')
+                                    <i class="fa fa-check text-success ms-2"></i>
+                                @endif
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['language' => 'zh']) }}"><i
+                                    class="flag-poland flag"></i>China
+                                    @if (app()->getLocale() == 'zh')
+                                    <i class="fa fa-check text-success ms-2"></i>
+                                @endif</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     @foreach ($medias as $item)
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
@@ -83,7 +111,7 @@
                 @foreach ($categories as $item)
                     <li>
                         <a class="nav-item nav-link  {{ count($item->descendants) > 0 ? 'dropdown-toggle' : '' }}"
-                            href="#">{{ $item->translate(app()->getLocale())->name }}</a>
+                            href="{{ Route('post.index', [$item->slug, $item->id]) }}">{{ $item->translate(app()->getLocale())->name }}</a>
                         @if (count($item->descendants) > 0)
                             @include('components.menu', ['categories' => $item->descendants])
                         @endif
@@ -105,9 +133,7 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Enjoy Your Vacation With Us</h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Tempor erat elitr rebum at clita diam amet
-                            diam et eos erat ipsum lorem sit</p>
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">Chào mừng đến với Laibaoxinchuan</h1>
                     </div>
                 </div>
             </div>
@@ -127,7 +153,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $aboutUs ? $aboutUs->address : '' }}
+                    <p class="mb-2"><i
+                            class="fa fa-map-marker-alt me-3"></i>{{ $aboutUs ? $aboutUs->address : '' }}
                     </p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $aboutUs ? $aboutUs->email : '' }}</p>
@@ -156,6 +183,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Media</h4>
                     <div class="d-flex pt-2">
