@@ -94,7 +94,6 @@ class AdminPostController extends Controller
             'active' => $request->active ?? self::STATUS_OFF,
             'feature' => $request->feature ?? self::STATUS_OFF,
             'category_id' => $request->category_id,
-            'slug' => Str::slug($request->name, '-'),
             'vie' => [
                 'name' => $request->name,
                 'description' => $request->description,

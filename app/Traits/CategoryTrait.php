@@ -37,4 +37,20 @@ trait CategoryTrait
 
         return $paginator;
     }
+
+    public function getCategoryIds($categories)
+    {
+        $results = [];
+        if (!empty($categories)) {
+            foreach ($categories->descendants as $category) {
+                $results[] = $category->id;
+
+                if ($category->descendants->isNotEmpty()) {
+                    $results = array_merge($results, self::getCategoryIds($category));
+                }
+            }
+        }
+
+        return $results;
+    }
 }

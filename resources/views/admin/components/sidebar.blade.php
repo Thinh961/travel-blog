@@ -37,6 +37,18 @@
         <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
                 <a href="#"
+                    class="nav-link dropdown-toggle {{ session('moduleActive') == 'reels' ? 'active' : '' }}"
+                    id="pagesDropdown" data-bs-toggle="dropdown"><i class="fas fa-bookmark"></i>Reels</a>
+                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'reels' ? 'show' : '' }}"
+                    aria-labelledby="pagesDropdown">
+                    <a href="{{ Route('admin.reels.index') }}" class="dropdown-item">Danh sách</a>
+                    <a href="{{ Route('admin.reels.create') }}" class="dropdown-item">Thêm mới</a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <div class="nav-item dropdown">
+                <a href="#"
                     class="nav-link dropdown-toggle {{ session('moduleActive') == 'category' ? 'active' : '' }}"
                     id="pagesDropdown" data-bs-toggle="dropdown"><i class="fas fa-bookmark"></i>Danh mục</a>
                 <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'category' ? 'show' : '' }}"

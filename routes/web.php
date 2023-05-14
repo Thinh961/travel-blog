@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminMediaController;
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\AdminReelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ContactController;
@@ -35,6 +36,8 @@ Route::get('contact', [ContactController::class, 'index'])->name('contact.index'
 Route::post('contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::get('danh-muc-bai-viet/{slug}.{id}', [PostController::class, 'index'])->name('post.index');
+Route::get('bai-viet/{slug}.{id}', [PostController::class, 'show'])->name('post.show');
+Route::get('bai-viet/tim-kiem', [PostController::class, 'search'])->name('post.search');
 
 /**Admin Router */
 Route::middleware(['auth'])->group(function () {
@@ -77,6 +80,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('contacts', [AdminContactController::class, 'index'])->name('contacts.index');
         Route::get('contacts/show/{id}', [AdminContactController::class, 'show'])->name('contacts.show');
         Route::get('contacts/destroy/{id}', [AdminContactController::class, 'destroy'])->name('contacts.destroy');
+
+        Route::get('reels/index', [AdminReelController::class, 'index'])->name('reels.index');
+        Route::get('reels/create', [AdminReelController::class, 'create'])->name('reels.create');
+        Route::post('reels/store', [AdminReelController::class, 'store'])->name('reels.store');
+        Route::get('reels/show/{id}', [AdminReelController::class, 'show'])->name('reels.show');
+        Route::post('reels/update/{id}', [AdminReelController::class, 'update'])->name('reels.update');
+        Route::get('reels/destroy/{id}', [AdminReelController::class, 'destroy'])->name('reels.destroy');
 
     });
 });

@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('image');
+            $table->integer('view')->default(0);
             $table->string('slug')->nullable();
             $table->string('active')->default('on');
             $table->string('feature')->default('on');

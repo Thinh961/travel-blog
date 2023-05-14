@@ -84,9 +84,10 @@
                         <li>
                             <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['language' => 'zh']) }}"><i
                                     class="flag-poland flag"></i>China
-                                    @if (app()->getLocale() == 'zh')
+                                @if (app()->getLocale() == 'zh')
                                     <i class="fa fa-check text-success ms-2"></i>
-                                @endif</a>
+                                @endif
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -121,10 +122,14 @@
             </ul>
 
             <div class="position-relative ms-auto animated slideInDown search-input">
-                <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text"
-                    placeholder="Eg: laibaoxinchuan">
-                <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
-                    style="margin-top: 7px;">Search</button>
+                <form action="{{ Route('post.search') }}" method="GET">
+                    <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text"
+                        placeholder="Eg: laibaoxinchuan"  name="keyword">
+                    <button type="submit"
+                        class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
+                        style="margin-top: 7px;" >Tìm kiếm</button>
+                </form>
+
             </div>
         </nav>
 
@@ -148,8 +153,7 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Company</h4>
-                    <a class="btn btn-link" href="">Về chúng tôi</a>
-                    <a class="btn btn-link" href="">Liên hệ với chúng tôi</a>
+                    <a class="btn btn-link" href="{{ Route('contact.index') }}">Liên hệ với chúng tôi</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>

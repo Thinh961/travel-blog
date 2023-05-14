@@ -15,14 +15,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Mô tả ngắn</label>
-                        <textarea name="description" id="description" class="form-control editor" cols="10" rows="10">{{ $post->name }}</textarea>
+                        <textarea name="description" id="description" class="form-control editor" cols="10" rows="10">{{ $post->description }}</textarea>
                         @error('description')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Nội dung</label>
-                        <textarea name="content" id="content" class="form-control editor" cols="10" rows="20">{{ $post->name }}</textarea>
+                        <textarea name="content" id="content" class="form-control editor" cols="10" rows="20">{{ $post->content }}</textarea>
                         @error('content')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
