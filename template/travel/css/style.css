@@ -141,7 +141,7 @@
         border-bottom: 1px solid rgba(256, 256, 256, .1);
         z-index: 999;
     }
-    
+
     .sticky-top.navbar-light {
         position: fixed;
         background: #FFFFFF;
@@ -178,7 +178,7 @@
     background-size: cover;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
     color: rgba(255, 255, 255, .5);
 }
 
@@ -439,58 +439,59 @@
     overflow: hidden !important;
     text-overflow: ellipsis;
 }
+
 /* ==================================== */
 
 .menu {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
 }
 
 .menu ul {
-  margin: 0;
-  display: flex;
-  flex-direction: row;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
 }
 
 .menu li {
-  list-style: none;
+    list-style: none;
 }
 
 .menu li::before {
-  content: none;
-  padding: 0;
+    content: none;
+    padding: 0;
 }
 
 .menu li ul {
-  display: block;
+    display: block;
 }
 
 .menu a {
-  display: block;
-  height: 3em;
-  line-height: 3em;
-  padding-right: 2em;
-  padding-left: 2em;
+    display: block;
+    height: 3em;
+    line-height: 3em;
+    padding-right: 2em;
+    padding-left: 2em;
 }
 
 .menu a[href="#"]::before {
-  content: "▸";
-  display: block;
-  width: 1.5em;
-  height: 1.5em;
-  position: absolute;
-  top: 0.75em;
-  left: 0.375em;
-  line-height: 1.5em;
-  text-align: center;
-  transition: transform 0.25s;
+    content: "▸";
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    top: 0.75em;
+    left: 0.375em;
+    line-height: 1.5em;
+    text-align: center;
+    transition: transform 0.25s;
 }
 
 .menu a[href="#"].toggled::before {
-  transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 /* .column-menu-right {
@@ -504,101 +505,109 @@
 } */
 
 .menu-icons a {
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 @media (max-width: 960px) {
-  .menu-drawer {
-    display: block;
-    width: 100%;
-    height: calc(100vh - 6em) !important;
-    position: absolute;
-    top: 3em;
-  }
+    .menu-drawer {
+        display: block;
+        width: 100%;
+        height: calc(100vh - 6em) !important;
+        position: absolute;
+        top: 3em;
+    }
 }
+
 .menu-drawer.toggled {
-  transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
 }
 
 @media (min-width: 960px) {
-  .menu-drawer.toggled {
-    transform: translate(0%, 0);
-  }
+    .menu-drawer.toggled {
+        transform: translate(0%, 0);
+    }
 }
+
 .menu-drawer ul {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 @media (min-width: 960px) {
-  .menu-drawer ul {
-    flex-direction: row;
-  }
+    .menu-drawer ul {
+        flex-direction: row;
+    }
 }
+
 @media (min-width: 960px) {
-  .menu-drawer li {
-    position: relative;
-  }
+    .menu-drawer li {
+        position: relative;
+    }
 }
+
 .menu-drawer li ul {
-  visibility: hidden;
-  height: 0;
-  min-width: 100%;
-  opacity: 0;
-  overflow: hidden;
-  flex-direction: column;
+    visibility: hidden;
+    height: 0;
+    min-width: 100%;
+    opacity: 0;
+    overflow: hidden;
+    flex-direction: column;
 }
 
 @media (min-width: 960px) {
-  .menu-drawer li ul {
-    position: absolute;
-    top: 3em;
-    /* right: 0; */
-  }
+    .menu-drawer li ul {
+        position: absolute;
+        top: 3em;
+        /* right: 0; */
+    }
 }
+
 .menu-drawer li ul.toggled {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
 
 @media (min-width: 960px) {
-  .menu-drawer li ul ul {
-    position: relative;
-    top: 0;
-  }
+    .menu-drawer li ul ul {
+        position: relative;
+        top: 0;
+    }
 }
 
 @media (max-width: 960px) {
-  .page.opened {
-    transform: translate(-50%, 0);
-  }
+    .page.opened {
+        transform: translate(-50%, 0);
+    }
 }
 
 @media (min-width: 960px) {
-  .menu ul ul {
-    border-radius: 0.5em;
-    background-color: #fff;
-  }
+    .menu ul ul {
+        border-radius: 0.5em;
+        background-color: #fff;
+    }
 }
+
 @media (min-width: 960px) {
-  .menu ul ul.toggled {
-    margin-top: 0.375em;
-  }
+    .menu ul ul.toggled {
+        margin-top: 0.375em;
+    }
 }
+
 .menu ul ul ul {
-  background-color: rgba(83, 146, 99, 0.188);
-  /* border-bottom-left-radius: 10px; */
+    background-color: rgba(83, 146, 99, 0.188);
+    /* border-bottom-left-radius: 10px; */
 }
 
 @media (min-width: 960px) {
-  .menu ul ul ul {
-    border-bottom-left-radius: 10px;
-    box-shadow: none;
-  }
+    .menu ul ul ul {
+        border-bottom-left-radius: 10px;
+        box-shadow: none;
+    }
 }
+
 .menu ul ul ul.toggled {
-  margin-top: auto;
+    margin-top: auto;
 }
 
 /* .menu a.a-menu {
@@ -606,44 +615,53 @@
 } */
 
 .menu a {
-  color: #000;
+    color: #000;
 }
 
 .menu a:hover,
 .menu a:focus {
-  color: #FFF;
-  background-color: var(--primary) !important;
-  border-bottom-left-radius: 10px;
+    color: #FFF;
+    background-color: var(--primary) !important;
+    border-bottom-left-radius: 10px;
 }
 
 .menu a:focus {
-  outline: none;
+    outline: none;
 }
 
 .menu a.toggled {
-  color: #FFF;
-  background-color: var(--primary);
-  border-bottom-left-radius: 10px;
+    color: #FFF;
+    background-color: var(--primary);
+    border-bottom-left-radius: 10px;
 }
 
 @media (max-width: 960px) {
-  .menu-drawer {
-    background-color: #FFF;
-    box-shadow: 0 0.125em 0.5em rgba(0, 51, 79, 0.0625), 0 0.25em 1em rgba(0, 51, 79, 0.125), inset 0 0 0 1px rgba(0, 51, 79, 0.125);
-  }
+    .menu-drawer {
+        background-color: #FFF;
+        box-shadow: 0 0.125em 0.5em rgba(0, 51, 79, 0.0625), 0 0.25em 1em rgba(0, 51, 79, 0.125), inset 0 0 0 1px rgba(0, 51, 79, 0.125);
+    }
 }
+
 .menu {
-  /* width: 100%;
+    /* width: 100%;
   margin-top: 3em;
   position: absolute;
   z-index: 1; */
 }
 
 .menu.scrolled {
-  margin-top: 0;
-  position: fixed;
+    margin-top: 0;
+    position: fixed;
 }
 
 .menu.animated {
-  background-color: #000;
+    background-color: #000;
+}
+
+.dots-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
