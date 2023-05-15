@@ -13,7 +13,7 @@
             <div class="row g-4 justify-content-center">
                 @if ($featurePosts->count() > 0)
                     @foreach ($featurePosts as $item)
-                        <div class="col-lg-4 col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="col-lg-3 col-md-3 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="package-item">
                                 <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
                                     <div class="overflow-hidden">
@@ -23,10 +23,10 @@
                                 <div class="text-center p-4">
                                     <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
                                         class="mb-0">{{ $item->translate(app()->getLocale())->name }}</a>
-                                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam
-                                        eos</p>
+                                    <span>{!! $item->translate(app()->getLocale())->description !!}</span>
                                     <div class="d-flex justify-content-center mb-2">
-                                        <a href="detail.html" class="btn btn-sm btn-primary px-3 border-radius"
+                                        <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
+                                            class="btn btn-sm btn-primary px-3 border-radius"
                                             style="border-radius: 30px;">Đọc thêm</a>
                                     </div>
                                 </div>
@@ -38,6 +38,45 @@
         </div>
     </div>
     <!-- Package End -->
+
+    @foreach ($categories as $category)
+        @if ($category->getAllPosts()->count() > 0)
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <h6 class="section-title bg-white text-center text-primary px-3"></h6>
+                        <h1 class="mb-5">{{ $category->translate(app()->getLocale())->name }}</h1>
+                    </div>
+                    <div class="row g-4 justify-content-center">
+                        @foreach ($category->getAllPosts() as $item)
+                            <div class="col-lg-3 col-md-3 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="package-item">
+                                    <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
+                                        <div class="overflow-hidden">
+                                            <img class="img-fluid" src="{{ Asset($item->image) }}" alt="">
+                                        </div>
+                                    </a>
+                                    <div class="text-center p-4">
+                                        <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
+                                            class="mb-0">{{ $item->translate(app()->getLocale())->name }}</a>
+                                        <span>{!! $item->translate(app()->getLocale())->description !!}</span>
+                                        <div class="d-flex justify-content-center mb-2">
+                                            <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
+                                                class="btn btn-sm btn-primary px-3 border-radius"
+                                                style="border-radius: 30px;">Đọc
+                                                thêm</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
+            </div>
+        @endif
+    @endforeach
+
 
     <!-- Slider Start-->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -58,8 +97,8 @@
                                 <p>{!! $item->translate(app()->getLocale())->description !!}</p>
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
-                                        class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px;">Read
-                                        More</a>
+                                        class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px;">Đọc
+                                        thêm</a>
                                 </div>
                             </div>
                         </div>
@@ -69,6 +108,4 @@
         </div>
     </div>
     <!-- Slider End -->
-
-   
 @endsection

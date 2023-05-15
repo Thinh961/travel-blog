@@ -3,8 +3,8 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">THÊM MỚI REELS</h6>
-                <form method="POST" action="{{ Route('admin.reels.store') }}">
+                <h6 class="mb-4">THÊM MỚI VIDEO</h6>
+                <form method="POST" action="{{ Route('admin.videos.store') }}">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Tiêu đề</label>
@@ -29,7 +29,11 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
-
+                    <div class="form-check form-switch mb-2">
+                        <label class="form-check-label" for="active">Kích hoạt</label>
+                        <input class="form-check-input" name="active" type="checkbox" role="switch" id="active"
+                            checked>
+                    </div>
                     <button type="submit" class="btn btn-primary">Thêm mới</button>
                 </form>
             </div>

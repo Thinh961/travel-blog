@@ -20,6 +20,22 @@ class Category extends Model implements TranslatableContract
         return $this->hasMany(Category::class, 'parent_id');
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function getAllPosts()
+    {
+        $posts = $this->posts;
+
+        foreach ($this->children as $child) {
+            $posts = $posts->concat($child->getAllPosts());
+        }
+
+        return $posts;
+    }
+
     public function getChildrenRecursive()
     {
         $children = $this->children;

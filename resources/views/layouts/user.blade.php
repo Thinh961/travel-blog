@@ -118,6 +118,7 @@
                         @endif
                     </li>
                 @endforeach
+                <li><a class="nav-item nav-link" href="{{ Route('video.index') }}">Video</a></li>
                 <li><a class="nav-item nav-link" href="{{ Route('contact.index') }}">Liên hệ</a></li>
             </ul>
 
@@ -205,17 +206,10 @@
         <div class=" container">
             <div class="copyright">
                 <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <div class="col-md-12 text-center mb-3 mb-md-0">
                         &copy; Bản quyền thuộc về Laibaoxinchuan
                     </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="{{ Route('home') }}">Home</a>
-                            <a href="#">Cookies</a>
-                            <a href="#">Help</a>
-                            <a href="#">FAQ</a>
-                        </div>
-                    </div>
+                 
                 </div>
             </div>
         </div>

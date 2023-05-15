@@ -37,12 +37,12 @@
         <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
                 <a href="#"
-                    class="nav-link dropdown-toggle {{ session('moduleActive') == 'reels' ? 'active' : '' }}"
-                    id="pagesDropdown" data-bs-toggle="dropdown"><i class="fas fa-bookmark"></i>Reels</a>
-                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'reels' ? 'show' : '' }}"
+                    class="nav-link dropdown-toggle {{ session('moduleActive') == 'videos' ? 'active' : '' }}"
+                    id="pagesDropdown" data-bs-toggle="dropdown"><i class="fas fa-bookmark"></i>Video</a>
+                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'videos' ? 'show' : '' }}"
                     aria-labelledby="pagesDropdown">
-                    <a href="{{ Route('admin.reels.index') }}" class="dropdown-item">Danh sách</a>
-                    <a href="{{ Route('admin.reels.create') }}" class="dropdown-item">Thêm mới</a>
+                    <a href="{{ Route('admin.videos.index') }}" class="dropdown-item">Danh sách</a>
+                    <a href="{{ Route('admin.videos.create') }}" class="dropdown-item">Thêm mới</a>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,8 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 /**Client Router */
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
+
+Route::get('video', [ReelController::class, 'index'])->name('video.index');
 
 Route::get('danh-muc-bai-viet/{slug}.{id}', [PostController::class, 'index'])->name('post.index');
 Route::get('bai-viet/{slug}.{id}', [PostController::class, 'show'])->name('post.show');
@@ -81,12 +84,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('contacts/show/{id}', [AdminContactController::class, 'show'])->name('contacts.show');
         Route::get('contacts/destroy/{id}', [AdminContactController::class, 'destroy'])->name('contacts.destroy');
 
-        Route::get('reels/index', [AdminReelController::class, 'index'])->name('reels.index');
-        Route::get('reels/create', [AdminReelController::class, 'create'])->name('reels.create');
-        Route::post('reels/store', [AdminReelController::class, 'store'])->name('reels.store');
-        Route::get('reels/show/{id}', [AdminReelController::class, 'show'])->name('reels.show');
-        Route::post('reels/update/{id}', [AdminReelController::class, 'update'])->name('reels.update');
-        Route::get('reels/destroy/{id}', [AdminReelController::class, 'destroy'])->name('reels.destroy');
+        Route::get('videos/index', [AdminReelController::class, 'index'])->name('videos.index');
+        Route::get('videos/create', [AdminReelController::class, 'create'])->name('videos.create');
+        Route::post('videos/store', [AdminReelController::class, 'store'])->name('videos.store');
+        Route::get('videos/show/{id}', [AdminReelController::class, 'show'])->name('videos.show');
+        Route::post('videos/update/{id}', [AdminReelController::class, 'update'])->name('videos.update');
+        Route::get('videos/destroy/{id}', [AdminReelController::class, 'destroy'])->name('videos.destroy');
 
     });
 });

@@ -13,20 +13,20 @@ class AdminReelController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            session(['moduleActive' => 'reels']);
+            session(['moduleActive' => 'videos']);
             return $next($request);
         });
     }
 
     public function index()
     {
-        $reels = Reel::paginate(10);
-        return view('admin.reels.index', compact('reels'));
+        $videos = Reel::paginate(10);
+        return view('admin.video.index', compact('videos'));
     }
 
     public function create()
     {
-        return view('admin.reels.create');
+        return view('admin.video.create');
     }
 
     public function store(ReelCreateRequest $request)
@@ -50,9 +50,9 @@ class AdminReelController extends Controller
 
     public function show($id)
     {
-        $reel = Reel::find($id);
-        $reel->videoId = $this->getIdFromUrlYoutube($reel->videoUrl);
-        return view('admin.reels.update', compact('reel'));
+        $video = Reel::find($id);
+        $video->videoId = $this->getIdFromUrlYoutube($video->videoUrl);
+        return view('admin.video.update', compact('video'));
     }
 
     public function update(ReelCreateRequest $request, $id)
