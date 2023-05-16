@@ -6,13 +6,13 @@
                 style="max-height: 200px; padding: 0; display: flex; border-bottom: 1px solid #ddd">
                 <div class="col-lg-4">
                     {{-- <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"> --}}
-                        <img class="img-fluid" style="width: 100%; height: 100px;object-fit: cover;"
+                        <img class="img-fluid" style="width: 100%; height: 100px;object-fit: fill;"
                         src="{{ Asset($item->image) }}">
                     {{-- </a> --}}
                 </div>
                 <div class="col-lg-8" style="margin-left: 5px;">
                     <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">{{ $item->translate(app()->getLocale())->name }}</a>
-                    <span>{!! $item->translate(app()->getLocale())->description !!}</span>
+                    <span class="dots-2">{!! $item->translate(app()->getLocale())->description !!}</span>
                 </div>
             </li>
         @endforeach
