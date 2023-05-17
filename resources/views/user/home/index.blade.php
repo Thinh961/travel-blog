@@ -13,18 +13,23 @@
             <div class="row g-4 justify-content-center">
                 @if ($featurePosts->count() > 0)
                     @foreach ($featurePosts as $item)
-                        <div class="col-lg-3 col-md-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="col-lg-3 col-md-3 wow fadeInUp card-home" data-wow-delay="0.1s">
                             <div class="package-item">
                                 <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
                                     <div class="overflow-hidden">
-                                        <img class="img-fluid" src="{{ Asset($item->image) }}" alt="">
+                                        <img class="img-fluid img-config" src="{{ Asset($item->image) }}" alt="">
                                     </div>
                                 </a>
-                                <div class="text-center p-4">
-                                    <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
-                                        class="mb-0">{{ $item->translate(app()->getLocale())->name }}</a>
-                                    <span>{!! $item->translate(app()->getLocale())->description !!}</span>
-                                    <div class="d-flex justify-content-center mb-2">
+                                <div class="text-center p-2">
+                                    <div class="dots-2">
+                                        <a href="{{ Route('post.show', [$item->slug, $item->id]) }}" title="{{ $item->translate(app()->getLocale())->name }}">
+                                            {{ $item->translate(app()->getLocale())->name }}
+                                        </a>
+                                    </div>
+                                    <div class="card-description">
+                                        <span>{!! $item->translate(app()->getLocale())->description !!}</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center mb-2">
                                         <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
                                             class="btn btn-sm btn-primary px-3 border-radius"
                                             style="border-radius: 30px;">Đọc thêm</a>
@@ -49,17 +54,22 @@
                     </div>
                     <div class="row g-4 justify-content-center">
                         @foreach ($category->getAllPosts() as $item)
-                            <div class="col-lg-3 col-md-3 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="col-lg-3 col-md-3 wow fadeInUp card-home" data-wow-delay="0.1s">
                                 <div class="package-item">
                                     <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
                                         <div class="overflow-hidden">
-                                            <img class="img-fluid" src="{{ Asset($item->image) }}" alt="">
+                                            <img class="img-fluid img-config" src="{{ Asset($item->image) }}" alt="">
                                         </div>
                                     </a>
-                                    <div class="text-center p-4">
-                                        <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
-                                            class="mb-0">{{ $item->translate(app()->getLocale())->name }}</a>
-                                        <span>{!! $item->translate(app()->getLocale())->description !!}</span>
+                                    <div class="text-center p-2">
+                                        <div class="dots-2">
+                                            <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
+                                                {{ $item->translate(app()->getLocale())->name }}
+                                            </a>
+                                        </div>
+                                        <div class="card-description">
+                                            <span>{!! $item->translate(app()->getLocale())->description !!}</span>
+                                        </div>
                                         <div class="d-flex justify-content-center mb-2">
                                             <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
                                                 class="btn btn-sm btn-primary px-3 border-radius"
@@ -87,14 +97,20 @@
             </div>
             <div class="owl-carousel testimonial-carousel position-relative">
                 @foreach ($mostViewPosts as $item)
-                    <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="wow fadeInUp card-home-slide" data-wow-delay="0.1s">
                         <div class="package-item">
-                            <div class="overflow-hidden">
-                                <img class="img-fluid" src="{{ Asset($item->image) }}" alt="">
+                            <div class="overflow-hidden div-config">
+                                <img class="img-fluid img-config-slide" src="{{ Asset($item->image) }}" alt="">
                             </div>
-                            <div class="text-center p-4">
-                                <h3 class="mb-0">{{ $item->translate(app()->getLocale())->name }}</h3>
-                                <p>{!! $item->translate(app()->getLocale())->description !!}</p>
+                            <div class="text-center p-2">
+                                <div class="dots-2">
+                                    <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
+                                        {{ $item->translate(app()->getLocale())->name }}
+                                    </a>
+                                </div>
+                                <div class="card-description">
+                                    <span>{!! $item->translate(app()->getLocale())->description !!}</span>
+                                </div>
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
                                         class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px;">Đọc

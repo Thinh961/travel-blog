@@ -12,17 +12,23 @@
                     <div class="row g-4 justify-content-center">
                         @if ($posts->count() > 0)
                             @foreach ($posts as $item)
-                                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="col-lg-6 col-md-6 wow fadeInUp card-home-slide" data-wow-delay="0.1s">
                                     <div class="package-item">
                                         <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
                                             <div class="overflow-hidden">
-                                                <img class="img-fluid" src="{{ Asset($item->image) }}" alt="">
+                                                <img class="img-fluid img-config-slide" src="{{ Asset($item->image) }}" alt="">
                                             </div>
                                         </a>
-                                        <div class="text-center p-4">
-                                            <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
-                                                class="mb-0">{{ $item->translate(app()->getLocale())->name }}</a>
-                                            <p>{!! $item->translate(app()->getLocale())->description !!}</p>
+                                        <div class="text-center p-2">
+                                            <div class="dots-2">
+                                                <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
+                                                    {{ $item->translate(app()->getLocale())->name }}
+                                                </a>
+                                            </div>
+                                            <div class="card-description">
+                                                <span>{!! $item->translate(app()->getLocale())->description !!}</span>
+                                            </div>
+
                                             <div class="d-flex justify-content-center mb-2">
                                                 <a href="detail.html" class="btn btn-sm btn-primary px-3 border-radius"
                                                     style="border-radius: 30px;">Đọc thêm</a>
