@@ -30,7 +30,7 @@
                                             </div>
 
                                             <div class="d-flex justify-content-center mb-2">
-                                                <a href="detail.html" class="btn btn-sm btn-primary px-3 border-radius"
+                                                <a href="{{ Route('post.show', [$item->slug, $item->id]) }}" class="btn btn-sm btn-primary px-3 border-radius"
                                                     style="border-radius: 30px;">Đọc thêm</a>
                                             </div>
                                         </div>
