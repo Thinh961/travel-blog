@@ -611,3 +611,7 @@ img.img-fluid.img-config-slide {
     border: 1px solid #ddd;
     background-color: #fff;
 }
+
+.row.g-3.thinh99 {
+    min-height: 500px;
+}
