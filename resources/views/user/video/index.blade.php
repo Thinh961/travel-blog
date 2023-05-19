@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('content')
-    <div class="container-xxl py-5 destination">
+    <div class="container-xxl destination">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">laibaoxinchuan</h6>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="max-height: 350px;">
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.7s">
                     @include('components.sidebar')
                 </div>
             </div>

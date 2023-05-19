@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('content')
-    <div class="container-xxl py-5 destination">
+    <div class="container-xxl destination">
         <div class="container">
             <div class="row g-3">
                 <div class="col-lg-8 col-md-6">
@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="max-height: 350px;">
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.7s">
                     @include('components.sidebar')
                 </div>
             </div>

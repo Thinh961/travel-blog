@@ -1,13 +1,13 @@
 @extends('layouts.user')
 
 @section('content')
-    <div class="container-xxl py-5 destination">
-        <div class="container thinh16">
+    <div class="container-xxl destination">
+        <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">laibaoxinchuan</h6>
                 <h1 class="mb-5">{{ $category ? $category->translate(app()->getLocale())->name : ''}}</h1>
             </div>
-            <div class="row g-3 thinh99">
+            <div class="row g-3">
                 <div class="col-lg-8 col-md-6">
                     <div class="row g-4 justify-content-center">
                         @if ($posts->count() > 0)
@@ -40,7 +40,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="max-height: 350px;">
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.7s">
                     @include('components.sidebar')
                 </div>
             </div>
