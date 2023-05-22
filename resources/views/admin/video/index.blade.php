@@ -18,31 +18,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($videos as $item)
+                    @if ($videos->count() > 0)
+                        @foreach ($videos as $item)
+                            <tr>
+                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td>
+                                    {{ str_repeat('|---', $item->level) . $item->translate('vie')->name }}
+                                </td>
+                                <td>
+                                    @if ($item->active == 'on')
+                                        <span class="p-2 badge bg-success">Kích hoạt</span>
+                                    @else
+                                        <span class="p-2 badge bg-warning text-dark">Ẩn đi</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ Route('admin.videos.show', $item->id) }}"
+                                        class="btn btn-success btn-sm rounded-0 text-white" type="button"
+                                        data-toggle="tooltip" data-placement="top" title="Edit"><i
+                                            class="fa fa-edit"></i></a>
+                                    <a href="{{ Route('admin.videos.destroy', $item->id) }}"
+                                        class="btn btn-danger btn-sm rounded-0 text-white"
+                                        onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="button"
+                                        data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                            class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
                         <tr>
-                            <th scope="row">{{ $loop->iteration }}</th>
-                            <td>
-                                {{ str_repeat('|---', $item->level) . $item->translate('vie')->name }}
-                            </td>
-                            <td>
-                                @if ($item->active == 'on')
-                                    <span class="p-2 badge bg-success">Kích hoạt</span>
-                                @else
-                                    <span class="p-2 badge bg-warning text-dark">Ẩn đi</span>
-                                @endif
-                            </td>
-                            <td>
-                                <a href="{{ Route('admin.videos.show', $item->id) }}"
-                                    class="btn btn-success btn-sm rounded-0 text-white" type="button" data-toggle="tooltip"
-                                    data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                <a href="{{ Route('admin.videos.destroy', $item->id) }}"
-                                    class="btn btn-danger btn-sm rounded-0 text-white"
-                                    onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="button"
-                                    data-toggle="tooltip" data-placement="top" title="Delete"><i
-                                        class="fa fa-trash"></i></a>
+                            <td colspan="4" class="text-center">
+                                <img src="{{ Asset('admin/img/no-data.png') }}" class="img-fluid" alt=""
+                                    style="height:350px">
                             </td>
                         </tr>
-                    @endforeach
+                    @endif
                 </tbody>
             </table>
             {{ $videos->render('pagination') }}

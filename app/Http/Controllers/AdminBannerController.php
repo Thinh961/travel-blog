@@ -26,47 +26,63 @@ class AdminBannerController extends Controller
         $this->uploadService = $uploadService;
     }
 
-    public function index()
-    {
-        $banners = Banner::paginate(10);
-        return view('admin.banners.index', compact('banners'));
-    }
-
     public function create()
     {
-        return view('admin.banners.create');
+        $banner = Banner::first();
+        return view('admin.banners.create', compact('banner'));
     }
 
     public function store(BannerCreateRequest $request)
     {
+        $banner = Banner::first();
         $data = $request->all();
-        $data['image'] = $this->uploadService->uploadImage($request->image, self::UPLOAD_FOLDER);
-        Banner::create($data);
-        $this->toastCreateSuccess();
-        return redirect()->back();
-    }
 
-    public function show($id)
-    {
-        $banner = Banner::find($id);
-        return view('admin.banners.update', compact('banner'));
-    }
-
-    public function update(BannerUpdateRequest $request, $id)
-    {
-        $data = $request->all();
         if (!empty($request->image)) {
             $data['image'] = $this->uploadService->uploadImage($request->image, self::UPLOAD_FOLDER);
         }
-        Banner::find($id)->update($data);
-        $this->toastUpdateSuccess();
+
+        if (empty($request->active)) {
+            $data['active'] = self::STATUS_OFF;
+        }
+
+        if (empty($banner)) {
+            Banner::create($data);
+            $this->toastCreateSuccess();
+        } else {
+            Banner::find($banner->id)->update($data);
+            $this->toastUpdateSuccess();
+        }
+
         return redirect()->back();
     }
 
-    public function destroy($id)
-    {
-        Banner::destroy($id);
-        $this->toastDeleteSuccess();
-        return redirect()->back();
-    }
+    // public function index()
+    // {
+    //     $banners = Banner::paginate(10);
+    //     return view('admin.banners.index', compact('banners'));
+    // }
+
+    // public function show($id)
+    // {
+    //     $banner = Banner::find($id);
+    //     return view('admin.banners.update', compact('banner'));
+    // }
+
+    // public function update(BannerUpdateRequest $request, $id)
+    // {
+    //     $data = $request->all();
+    //     if (!empty($request->image)) {
+    //         $data['image'] = $this->uploadService->uploadImage($request->image, self::UPLOAD_FOLDER);
+    //     }
+    //     Banner::find($id)->update($data);
+    //     $this->toastUpdateSuccess();
+    //     return redirect()->back();
+    // }
+
+    // public function destroy($id)
+    // {
+    //     Banner::destroy($id);
+    //     $this->toastDeleteSuccess();
+    //     return redirect()->back();
+    // }
 }

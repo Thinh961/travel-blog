@@ -5,7 +5,7 @@
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">laibaoxinchuan</h6>
-                <h1 class="mb-5">Bạn đang tìm kiếm với từ khoá: {{ $keyword }}</h1>
+                <h1 class="mb-5">{{ __('msg.searchWithKeyword') }}: {{ $keyword }}</h1>
             </div>
             <div class="row g-3">
                 <div class="col-lg-8 col-md-6">
@@ -16,7 +16,8 @@
                                     <div class="package-item">
                                         <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
                                             <div class="overflow-hidden">
-                                                <img class="img-fluid" src="{{ Asset($item->image) }}" alt="">
+                                                <img class="img-fluid img-config-slide" src="{{ Asset($item->image) }}"
+                                                    alt="">
                                             </div>
                                         </a>
                                         <div class="text-center p-4">
@@ -26,7 +27,7 @@
                                             <div class="d-flex justify-content-center mb-2">
                                                 <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
                                                     class="btn btn-sm btn-primary px-3 border-radius"
-                                                    style="border-radius: 30px;">Đọc thêm</a>
+                                                    style="border-radius: 30px;">{{ __('msg.readMore') }}</a>
                                             </div>
                                         </div>
                                     </div>

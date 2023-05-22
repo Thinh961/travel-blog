@@ -8,7 +8,7 @@
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3"></h6>
-                <h1 class="mb-5">Bài viết nổi bật</h1>
+                <h1 class="mb-5">{{ __('msg.featurePost') }}</h1>
             </div>
             <div class="row g-4 justify-content-center">
                 @if ($featurePosts->count() > 0)
@@ -22,7 +22,8 @@
                                 </a>
                                 <div class="text-center p-2">
                                     <div class="dots-2">
-                                        <a href="{{ Route('post.show', [$item->slug, $item->id]) }}" title="{{ $item->translate(app()->getLocale())->name }}">
+                                        <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
+                                            title="{{ $item->translate(app()->getLocale())->name }}">
                                             {{ $item->translate(app()->getLocale())->name }}
                                         </a>
                                     </div>
@@ -32,7 +33,7 @@
                                     <div class="d-flex justify-content-center align-items-center mb-2">
                                         <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
                                             class="btn btn-sm btn-primary px-3 border-radius"
-                                            style="border-radius: 30px;">Đọc thêm</a>
+                                            style="border-radius: 30px;">{{ __('msg.readMore') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +59,8 @@
                                 <div class="package-item">
                                     <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
                                         <div class="overflow-hidden">
-                                            <img class="img-fluid img-config" src="{{ Asset($item->image) }}" alt="">
+                                            <img class="img-fluid img-config" src="{{ Asset($item->image) }}"
+                                                alt="">
                                         </div>
                                     </a>
                                     <div class="text-center p-2">
@@ -73,8 +75,7 @@
                                         <div class="d-flex justify-content-center mb-2">
                                             <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
                                                 class="btn btn-sm btn-primary px-3 border-radius"
-                                                style="border-radius: 30px;">Đọc
-                                                thêm</a>
+                                                style="border-radius: 30px;">{{ __('msg.readMore') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +94,7 @@
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3"></h6>
-                <h1 class="mb-5">Có thể bạn quan tâm</h1>
+                <h1 class="mb-5">{{ __('msg.maybeYouCare') }}</h1>
             </div>
             <div class="owl-carousel testimonial-carousel position-relative">
                 @foreach ($mostViewPosts as $item)
@@ -113,8 +114,8 @@
                                 </div>
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
-                                        class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px;">Đọc
-                                        thêm</a>
+                                        class="btn btn-sm btn-primary px-3 border-end"
+                                        style="border-radius: 30px;">{{ __('msg.readMore') }}</a>
                                 </div>
                             </div>
                         </div>

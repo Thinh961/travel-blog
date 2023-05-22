@@ -22,31 +22,6 @@
                     class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
         </div>
         <div class="navbar-nav w-100">
-            <a href="{{ Route('admin.about_us.create') }}"
-                class="nav-item nav-link {{ session('moduleActive') == 'about_us' ? 'active' : '' }}"><i class="fas fa-warehouse"></i>About Us</a>
-        </div>
-        <div class="navbar-nav w-100">
-            <a href="{{ Route('admin.medias.create') }}"
-                class="nav-item nav-link {{ session('moduleActive') == 'medias' ? 'active' : '' }}"><i class="fab fa-internet-explorer"></i>Mạng xã hội</a>
-        </div>
-        <div class="navbar-nav w-100">
-            <a href="{{ Route('admin.contacts.index') }}"
-                class="nav-item nav-link {{ session('moduleActive') == 'contacts' ? 'active' : '' }}"><i
-                    class="fa fa-tachometer-alt me-2"></i>Liên hệ</a>
-        </div>
-        <div class="navbar-nav w-100">
-            <div class="nav-item dropdown">
-                <a href="#"
-                    class="nav-link dropdown-toggle {{ session('moduleActive') == 'videos' ? 'active' : '' }}"
-                    id="pagesDropdown" data-bs-toggle="dropdown"><i class="fas fa-bookmark"></i>Video</a>
-                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'videos' ? 'show' : '' }}"
-                    aria-labelledby="pagesDropdown">
-                    <a href="{{ Route('admin.videos.index') }}" class="dropdown-item">Danh sách</a>
-                    <a href="{{ Route('admin.videos.create') }}" class="dropdown-item">Thêm mới</a>
-                </div>
-            </div>
-        </div>
-        <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
                 <a href="#"
                     class="nav-link dropdown-toggle {{ session('moduleActive') == 'category' ? 'active' : '' }}"
@@ -73,14 +48,34 @@
         <div class="navbar-nav w-100">
             <div class="nav-item dropdown">
                 <a href="#"
-                    class="nav-link dropdown-toggle {{ session('moduleActive') == 'banners' ? 'active' : '' }}"
-                    id="pagesDropdown" data-bs-toggle="dropdown"><i class="fas fa-images"></i>Banner</a>
-                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'banners' ? 'show' : '' }}"
+                    class="nav-link dropdown-toggle {{ session('moduleActive') == 'videos' ? 'active' : '' }}"
+                    id="pagesDropdown" data-bs-toggle="dropdown"><i class="fas fa-video"></i>Video</a>
+                <div class="dropdown-menu bg-transparent border-0 {{ session('moduleActive') == 'videos' ? 'show' : '' }}"
                     aria-labelledby="pagesDropdown">
-                    <a href="{{ Route('admin.banners.create') }}" class="dropdown-item">Thêm mới</a>
-                    <a href="{{ Route('admin.banners.index') }}" class="dropdown-item">Danh sách</a>
+                    <a href="{{ Route('admin.videos.index') }}" class="dropdown-item">Danh sách</a>
+                    <a href="{{ Route('admin.videos.create') }}" class="dropdown-item">Thêm mới</a>
                 </div>
             </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <a href="{{ Route('admin.about_us.create') }}"
+                class="nav-item nav-link {{ session('moduleActive') == 'about_us' ? 'active' : '' }}"><i
+                    class="fas fa-warehouse"></i>About Us</a>
+        </div>
+        <div class="navbar-nav w-100">
+            <a href="{{ Route('admin.medias.create') }}"
+                class="nav-item nav-link {{ session('moduleActive') == 'medias' ? 'active' : '' }}"><i
+                    class="fab fa-internet-explorer"></i>Mạng xã hội</a>
+        </div>
+        <div class="navbar-nav w-100">
+            <a href="{{ Route('admin.contacts.index') }}"
+                class="nav-item nav-link {{ session('moduleActive') == 'contacts' ? 'active' : '' }}"><i
+                    class="fa fa-tachometer-alt me-2"></i>Liên hệ</a>
+        </div>
+        <div class="navbar-nav w-100">
+            <a href="{{ Route('admin.banners.create') }}"
+                class="nav-item nav-link {{ session('moduleActive') == 'banners' ? 'active' : '' }}"><i
+                    class="fas fa-images"></i>Banner</a>
         </div>
     </nav>
 </div>

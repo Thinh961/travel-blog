@@ -65,7 +65,7 @@
                 <div class="dropdown d-inline">
                     <a class="dropdown-toggle" href="#" style="pointer-events: none;" id="Dropdown"
                         role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        Ngôn ngữ
+                        {{ __('msg.language') }}
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="Dropdown">
@@ -118,31 +118,39 @@
                         @endif
                     </li>
                 @endforeach
-                <li><a class="nav-item nav-link" href="{{ Route('video.index') }}">Video</a></li>
-                <li><a class="nav-item nav-link" href="{{ Route('contact.index') }}">Liên hệ</a></li>
+                <li><a class="nav-item nav-link" href="{{ Route('about.index') }}">{{ __('msg.aboutUs') }}</a></li>
+                <li><a class="nav-item nav-link" href="{{ Route('video.index') }}">{{ __('msg.video') }}</a></li>
+                <li><a class="nav-item nav-link" href="{{ Route('contact.index') }}">{{ __('msg.contact') }}</a></li>
             </ul>
 
             <div class="position-relative ms-auto animated slideInDown search-input">
                 <form action="{{ Route('post.search') }}" method="GET">
                     <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text"
-                        placeholder="Eg: laibaoxinchuan"  name="keyword">
+                        placeholder="Eg: laibaoxinchuan" name="keyword">
                     <button type="submit"
                         class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
-                        style="margin-top: 7px;" >Tìm kiếm</button>
+                        style="margin-top: 7px;">{{ __('msg.search') }}</button>
                 </form>
-
             </div>
         </nav>
 
 
-        <div class="container-fluid bg-primary py-5 mb-5 hero-header">
-            <div class="container py-5">
-                <div class="row justify-content-center py-5">
-                    <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Chào mừng đến với Laibaoxinchuan</h1>
+        <div class="container-fluid bg-primary py-5 mb-5 hero-header"
+            style="background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7)),
+            url({{ !empty($banner) ? Asset($banner->image) : Asset('user/img/bg-hero.jpg') }});  
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;">
+            <a href="{{ !empty($banner->link) ? Asset($banner->link) : '' }}">
+                <div class="container py-5">
+                    <div class="row justify-content-center py-5">
+                        <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                            <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('msg.welcome') }}
+                                Laibaoxinchuan</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 
@@ -154,7 +162,7 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Company</h4>
-                    <a class="btn btn-link" href="{{ Route('contact.index') }}">Liên hệ với chúng tôi</a>
+                    <a class="btn btn-link" href="{{ Route('contact.index') }}">{{ __('msg.contactUs') }}</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
@@ -209,7 +217,7 @@
                     <div class="col-md-12 text-center mb-3 mb-md-0">
                         &copy; Bản quyền thuộc về Laibaoxinchuan
                     </div>
-                 
+
                 </div>
             </div>
         </div>

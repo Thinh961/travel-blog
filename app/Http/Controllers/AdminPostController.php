@@ -30,6 +30,7 @@ class AdminPostController extends Controller
     {
         $keyword = $request->keyword;
         $active = $request->active;
+        $sort = $request->sort;
 
         $posts = Post::with(['category.translations', 'translations'])
             ->where(function ($query) use ($keyword) {
@@ -44,10 +45,17 @@ class AdminPostController extends Controller
             $posts = $posts->where('active', $request->active);
         }
 
+        if (!empty($sort)) {
+            $orderBy = explode('-', $sort);
+            $posts = $posts->orderBy($orderBy[0], $orderBy[1]);
+        } else {
+            $posts = $posts->orderBy('id', 'desc');
+        }
+
         $posts = $posts->paginate(10);
         $posts->appends(['keyword' => $keyword, 'active' => $active]);
 
-        return view('admin.posts.index', compact('posts', 'active'));
+        return view('admin.posts.index', compact('posts', 'active', 'sort'));
     }
 
     public function create()

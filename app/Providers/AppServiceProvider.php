@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\AboutUs;
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Media;
 use App\Models\Post;
@@ -36,17 +37,14 @@ class AppServiceProvider extends ServiceProvider
                 ->where(['active' => 'on', 'feature' => 'on'])
                 ->paginate(8);
             $mostViewPosts = Post::with(['translations'])
-                ->where(['active' => 'on', 'feature' => 'on'])
+                ->where(['active' => 'on'])
                 ->orderBY('view', 'desc')
                 ->paginate(8);
-
-            // echo '<pre>';
-            // print_r(json_encode($mostViewPosts));
-            // echo '<pre>';
-            // die;
+            $banner = Banner::where('active', 'on')->first();
             $aboutUs = AboutUs::first();
             $medias = Media::all();
-            View::share(compact('categories', 'medias', 'aboutUs', 'featurePosts', 'mostViewPosts'));
+            
+            View::share(compact('categories', 'medias', 'aboutUs', 'featurePosts', 'mostViewPosts', 'banner'));
         }
     }
 }

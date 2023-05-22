@@ -6,20 +6,20 @@
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Contact Us</h6>
-                <h1 class="mb-5">Liên hệ</h1>
+                <h1 class="mb-5">{{ __('msg.contact') }}</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h5>Liên lạc với chúng tôi</h5>
-                    <p class="mb-4">Nếu bạn có nhu cầu về dịch vụ hay liên lạc với chúng tôi qua những thông tin sau.</p>
+                    <h5>{{ __('msg.contactUs') }}</h5>
+                    <p class="mb-4">{{ __('msg.contactUsDescription') }}</p>
                     <div class="d-flex align-items-center mb-4">
                         <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
                             style="width: 50px; height: 50px;">
                             <i class="fa fa-map-marker-alt text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <h5 class="text-primary">Địa chỉ</h5>
-                            <p class="mb-0">{{ $aboutUs->address }}</p>
+                            <h5 class="text-primary">{{ __('msg.address') }}</h5>
+                            <p class="mb-0">{{ $aboutUs ? $aboutUs->address : '' }}</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-4">
@@ -28,8 +28,8 @@
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <h5 class="text-primary">Điện thoại</h5>
-                            <p class="mb-0">{{ $aboutUs->phone }}</p>
+                            <h5 class="text-primary">{{ __('msg.phone') }}</h5>
+                            <p class="mb-0">{{ $aboutUs ? $aboutUs->phone : '' }}</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
@@ -38,8 +38,8 @@
                             <i class="fa fa-envelope-open text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <h5 class="text-primary">Email</h5>
-                            <p class="mb-0">{{ $aboutUs->email }}</p>
+                            <h5 class="text-primary">{{ __('msg.email') }}</h5>
+                            <p class="mb-0">{{ $aboutUs ? $aboutUs->email : '' }}</p>
                         </div>
                     </div>
                 </div>
@@ -55,9 +55,9 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="fullname" name="fullname" value="{{ old('fullname') }}"
-                                        placeholder="Your Name">
-                                    <label for="fullname">Họ và tên</label>
+                                    <input type="text" class="form-control" id="fullname" name="fullname"
+                                        value="{{ old('fullname') }}" placeholder="Your Name">
+                                    <label for="fullname">{{ __('msg.fullname') }}</label>
                                     @error('fullname')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -65,8 +65,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="Your Email">
-                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        value="{{ old('email') }}" placeholder="Your Email">
+                                    <label for="email">{{ __('msg.email') }}</label>
                                 </div>
                                 @error('email')
                                     <small class="text-danger">{{ $message }}</small>
@@ -74,8 +75,9 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" placeholder="phone">
-                                    <label for="phone">Số điện thoại</label>
+                                    <input type="text" class="form-control" id="phone" name="phone"
+                                        value="{{ old('phone') }}" placeholder="phone">
+                                    <label for="phone">{{ __('msg.phone') }}</label>
                                 </div>
                                 @error('phone')
                                     <small class="text-danger">{{ $message }}</small>
@@ -84,11 +86,11 @@
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 100px"></textarea>
-                                    <label for="message">Lời nhắn</label>
+                                    <label for="message">{{ __('msg.note') }}</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Gửi thông tin</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit">{{ __('msg.sendInfo') }}</button>
                             </div>
                         </div>
                     </form>

@@ -21,7 +21,8 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
-                    <div class="alert alert-primary">Lấy Icon ở trong trang này: <a href="https://fontawesome.com/v5/search" target="blank">Font Awesome</a></div>
+                    <div class="alert alert-primary">Lấy Icon ở trong trang này: <a href="https://fontawesome.com/v5/search"
+                            target="blank">Font Awesome</a></div>
                     <button type="submit" class="btn btn-primary">Thêm mới</button>
                 </form>
             </div>
@@ -38,25 +39,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($medias as $item)
-                            <tr class="align-middle">
-                                <th scope="row">{{ $loop->iteration }}</th>
-                                <td style="font-size:30px">
-                                    {!! $item->icon !!}
-                                </td>
-                                <td>
-                                    <a href="{{ Route('admin.medias.show', $item->id) }}"
-                                        class="btn btn-success btn-sm rounded-0 text-white" type="button"
-                                        data-toggle="tooltip" data-placement="top" title="Edit"><i
-                                            class="fa fa-edit"></i></a>
-                                    <a href="{{ Route('admin.medias.destroy', $item->id) }}"
-                                        class="btn btn-danger btn-sm rounded-0 text-white"
-                                        onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="button"
-                                        data-toggle="tooltip" data-placement="top" title="Delete"><i
-                                            class="fa fa-trash"></i></a>
+                        @if ($medias->count() > 0)
+                            @foreach ($medias as $item)
+                                <tr class="align-middle">
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td style="font-size:30px">
+                                        {!! $item->icon !!}
+                                    </td>
+                                    <td>
+                                        <a href="{{ Route('admin.medias.show', $item->id) }}"
+                                            class="btn btn-success btn-sm rounded-0 text-white" type="button"
+                                            data-toggle="tooltip" data-placement="top" title="Edit"><i
+                                                class="fa fa-edit"></i></a>
+                                        <a href="{{ Route('admin.medias.destroy', $item->id) }}"
+                                            class="btn btn-danger btn-sm rounded-0 text-white"
+                                            onclick="return confirm('Bạn có chắc chắn muốn xóa')" type="button"
+                                            data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                                class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="3" class="text-center">
+                                    <img src="{{ Asset('admin/img/no-data.png') }}" class="img-fluid" alt=""
+                                        style="height:250px">
                                 </td>
                             </tr>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>

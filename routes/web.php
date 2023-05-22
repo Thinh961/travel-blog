@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminAboutUsController;
 use App\Http\Controllers\AdminBannerController;
 use App\Http\Controllers\AdminCategoryController;
@@ -33,8 +34,10 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 
 /**Client Router */
-Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::get('lien-he', [ContactController::class, 'index'])->name('contact.index');
 Route::post('contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
+
+Route::get('ve-chung-toi', [AboutController::class, 'index'])->name('about.index');
 
 Route::get('video', [ReelController::class, 'index'])->name('video.index');
 
@@ -64,12 +67,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('users/show', [AdminUserController::class, 'show'])->name('users.show');
         Route::post('users/update', [AdminUserController::class, 'update'])->name('users.update');
 
-        Route::get('banners/index', [AdminBannerController::class, 'index'])->name('banners.index');
         Route::get('banners/create', [AdminBannerController::class, 'create'])->name('banners.create');
         Route::post('banners/store', [AdminBannerController::class, 'store'])->name('banners.store');
-        Route::get('banners/show/{id}', [AdminBannerController::class, 'show'])->name('banners.show');
-        Route::post('banners/update/{id}', [AdminBannerController::class, 'update'])->name('banners.update');
-        Route::get('banners/destroy/{id}', [AdminBannerController::class, 'destroy'])->name('banners.destroy');
+        // Route::get('banners/index', [AdminBannerController::class, 'index'])->name('banners.index');
+        // Route::get('banners/show/{id}', [AdminBannerController::class, 'show'])->name('banners.show');
+        // Route::post('banners/update/{id}', [AdminBannerController::class, 'update'])->name('banners.update');
+        // Route::get('banners/destroy/{id}', [AdminBannerController::class, 'destroy'])->name('banners.destroy');
 
         Route::get('about-us/create', [AdminAboutUsController::class, 'create'])->name('about_us.create');
         Route::post('about-us/store', [AdminAboutUsController::class, 'store'])->name('about_us.store');

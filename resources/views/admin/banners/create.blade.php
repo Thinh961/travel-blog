@@ -3,17 +3,13 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light rounded h-100 p-4">
-                <h4 class="mb-4">THÊM MỚI BANNER</h4>
+                <h4 class="mb-4">BANNER</h4>
                 <form action="{{ Route('admin.banners.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="name" class="form-label">Tiêu đề Banner</label>
-                        <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name">
-                    </div>
-                    <div class="mb-3">
                         <label for="link" class="form-label">Link (nếu có)</label>
                         <input type="text" class="form-control" name="link" id="link"
-                            value="{{ old('link') }}">
+                            value="{{ !empty($banner->link) ? $banner->link : old('link') }}">
                         @error('link')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -28,14 +24,16 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <img id="image" src="{{ Asset('/admin/img/default-image.jpg') }}" width="350px" height="250px"
-                            alt="">
+                        <img id="image"
+                            src="{{ !empty($banner->image) ? Asset($banner->image) : Asset('/admin/img/default-image.jpg') }}"
+                            width="350px" height="250px" alt="">
                     </div>
                     <div class="form-check form-switch mb-2">
-                        <input class="form-check-input" type="checkbox" name="active" id="active" checked>
+                        <input class="form-check-input" type="checkbox" name="active" id="active"
+                            {{ !empty($banner->active) && $banner->active == 'on' ? 'checked' : '' }}>
                         <label class="form-check-label" for="active">Kích hoạt</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                    <button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
                 </form>
             </div>
         </div>
