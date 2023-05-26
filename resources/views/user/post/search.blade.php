@@ -9,8 +9,8 @@
             </div>
             <div class="row g-3">
                 <div class="col-lg-8 col-md-6">
-                    <div class="row g-4 justify-content-center">
-                        @if ($posts->count() > 0)
+                    @if ($posts->count() > 0)
+                        <div class="row g-4 justify-content-center">
                             @foreach ($posts as $item)
                                 <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="package-item">
@@ -33,8 +33,13 @@
                                     </div>
                                 </div>
                             @endforeach
-                        @endif
-                    </div>
+
+                        </div>
+                    @else
+                        <div>
+                            <img src="{{ Asset('user/img/no-data.png') }}" class="img-fluid" alt="">
+                        </div>
+                    @endif
                 </div>
                 <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.7s">
                     @include('components.sidebar')
