@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "Simli";
+    src: url("../font/simli.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Sthupo";
+    src: url("../font/sthupo.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Stfangso";
+    src: url("../font/stfangso.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Stxingka";
+    src: url("../font/stxingka.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Stxinwei";
+    src: url("../font/stxinwei.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Stzhongs";
+    src: url("../font/stzhongs.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "GCHW00U";
+    src: url("../font/GCHW00U.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "GCSN00M";
+    src: url("../font/GCSN00M.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "GHEI01U";
+    src: url("../font/GHEI01U.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "GHSN00M";
+    src: url("../font/GHSN00M.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "GMIN00U";
+    src: url("../font/GMIN00U.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "GSIN00H";
+    src: url("../font/GSIN00H.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "GSIN00M";
+    src: url("../font/GSIN00M.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "GSKA00B";
+    src: url("../font/GSKA00B.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "GSKA00H";
+    src: url("../font/GSKA00H.TTF") format("truetype");
+}

@@ -8,21 +8,21 @@
                 <div class="rounded h-100 p-4">
                     <div class="mb-3">
                         <label for="name" class="form-label">Tên bài viết</label>
-                        <input type="text" name="name" value="{{ $post->name }}" class="form-control" id="name">
+                        <input type="text" name="name" value="{{ $post->translate('vie')->name }}" class="form-control" id="name">
                         @error('name')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Mô tả ngắn</label>
-                        <textarea name="description" id="description" class="form-control editor" cols="10" rows="10">{{ $post->description }}</textarea>
+                        <textarea name="description" id="description" class="form-control editor" cols="10" rows="10">{{ $post->translate('vie')->description }}</textarea>
                         @error('description')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Nội dung</label>
-                        <textarea name="content" id="content" class="form-control editor" cols="10" rows="20">{{ $post->content }}</textarea>
+                        <textarea name="content" id="content" class="form-control editor" cols="10" rows="20">{{ $post->translate('vie')->content }}</textarea>
                         @error('content')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror

@@ -17,5 +17,7 @@ return [
     'fullname' => 'Họ và tên',
     'note' => 'Lời nhắn',
     'sendInfo' => 'Gửi thông tin',
-    'searchWithKeyword' => 'Bạn đang tìm kiếm với từ khoá'
+    'searchWithKeyword' => 'Bạn đang tìm kiếm với từ khoá',
+    'languageChina' => 'China',
+    'logo' => 'Laibaoxinchuan'
 ];

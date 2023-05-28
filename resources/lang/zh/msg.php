@@ -17,5 +17,7 @@ return [
     'fullname' => '名字和姓氏',
     'note' => '信息',
     'sendInfo' => '发送信息',
-    'searchWithKeyword' => '您正在使用关键字搜索'
+    'searchWithKeyword' => '您正在使用关键字搜索',
+    'languageChina' => '中文',
+    'logo' => '来宝心传'
 ];

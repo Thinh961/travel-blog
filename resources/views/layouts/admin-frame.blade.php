@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Travel-Admin</title>
+    <title>Admin-Laibaoxinchuan</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -46,6 +46,22 @@
                 "insertdatetime media nonbreaking save table directionality",
                 "emoticons template paste textpattern"
             ],
+            content_css: 'http://localhost/travel-blog/public/user/css/font.css',
+            font_formats: "Simli;Sthupo;Stfangso;Stxingka;Stxinwei;Stzhongs;GCHW00U;GCSN00M;GHEI01U;GHSN00M;GMIN00U;GSIN00H;GSIN00M;GSKA00B;GSKA00H;" +
+                "Arial=arial,helvetica,sans-serif;" +
+                "Times New Roman=times new roman,times;" +
+                "Andale Mono=andale mono,times;" +
+                "Arial Black=arial black,avant garde;" +
+                "Book Antiqua=book antiqua,palatino;" +
+                "Comic Sans MS=comic sans ms,sans-serif;" +
+                "Courier New=courier new,courier; " +
+                "Georgia=georgia,palatino;" +
+                "Helvetica=helvetica;" +
+                "Impact=impact,chicago;" +
+                "Oswald=oswald; Symbol=symbol;" +
+                "Tahoma=tahoma,arial,helvetica,sans-serif;" +
+                "Terminal=terminal,monaco;" +
+                "Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats;",
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
             file_picker_callback: function(callback, value, meta) {
                 var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName(

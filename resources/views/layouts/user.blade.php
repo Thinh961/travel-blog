@@ -83,7 +83,7 @@
                         </li>
                         <li>
                             <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['language' => 'zh']) }}"><i
-                                    class="flag-poland flag"></i>China
+                                    class="flag-poland flag"></i>{{ __('msg.languageChina') }}
                                 @if (app()->getLocale() == 'zh')
                                     <i class="fa fa-check text-success ms-2"></i>
                                 @endif
@@ -105,7 +105,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3">
             <a href="{{ Route('home') }}" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>laibaoxinchuan</h1>
+                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>{{ __('msg.logo') }}</h1>
             </a>
 
             <ul id="nav">
@@ -146,7 +146,7 @@
                     <div class="row justify-content-center py-5">
                         <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
                             <h1 class="display-3 text-white mb-3 animated slideInDown">{{ __('msg.welcome') }}
-                                Laibaoxinchuan</h1>
+                                {{ __('msg.logo') }}</h1>
                         </div>
                     </div>
                 </div>
