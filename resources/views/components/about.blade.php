@@ -14,7 +14,7 @@
                  <h1 class="mb-4">{{ __('msg.welcome') }} <span
                          class="text-primary">{{ $aboutUs ? $aboutUs->translate(app()->getLocale())->name : '' }}</span>
                  </h1>
-                 <div class="card-description">
+                 <div class="">
                      <span class="mb-4">{!! $aboutUs ? $aboutUs->translate(app()->getLocale())->description : '' !!}</span>
                  </div>
 
