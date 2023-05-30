@@ -14,7 +14,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Sans+SC&family=Noto+Serif&family=Noto+Serif+SC&family=Roboto&family=ZCOOL+KuaiLe&family=ZCOOL+QingKe+HuangYou&family=ZCOOL+XiaoWei&family=Zhi+Mang+Xing&Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+    rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -46,22 +47,8 @@
                 "insertdatetime media nonbreaking save table directionality",
                 "emoticons template paste textpattern"
             ],
-            content_css: 'http://localhost/travel-blog/public/user/css/font.css',
-            font_formats: "Simli;Sthupo;Stfangso;Stxingka;Stxinwei;Stzhongs;GCHW00U;GCSN00M;GHEI01U;GHSN00M;GMIN00U;GSIN00H;GSIN00M;GSKA00B;GSKA00H;" +
-                "Arial=arial,helvetica,sans-serif;" +
-                "Times New Roman=times new roman,times;" +
-                "Andale Mono=andale mono,times;" +
-                "Arial Black=arial black,avant garde;" +
-                "Book Antiqua=book antiqua,palatino;" +
-                "Comic Sans MS=comic sans ms,sans-serif;" +
-                "Courier New=courier new,courier; " +
-                "Georgia=georgia,palatino;" +
-                "Helvetica=helvetica;" +
-                "Impact=impact,chicago;" +
-                "Oswald=oswald; Symbol=symbol;" +
-                "Tahoma=tahoma,arial,helvetica,sans-serif;" +
-                "Terminal=terminal,monaco;" +
-                "Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats;",
+            content_css: 'https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Sans+SC&family=Noto+Serif&family=Noto+Serif+SC&family=Roboto&family=ZCOOL+KuaiLe&family=ZCOOL+QingKe+HuangYou&family=ZCOOL+XiaoWei&family=Zhi+Mang+Xing&display=swap',
+            font_formats: 'Times New Roman=times new roman,times;Arial=arial,helvetica,sans-serif;Liu Jian Mao Cao;Long Cang;Ma Shan Zheng;Noto Sans SC;Noto Serif;Noto Serif SC;Roboto;ZCOOL KuaiLe;ZCOOL QingKe HuangYou;ZCOOL XiaoWei;Zhi Mang Xing',
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
             file_picker_callback: function(callback, value, meta) {
                 var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName(

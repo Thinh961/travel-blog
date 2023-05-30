@@ -5,6 +5,9 @@
     --light: #f5f5f5;
     --dark: #14141f;
 }
+body {
+    color: #000;
+}
 
 .fw-medium {
     font-weight: 600 !important;
@@ -516,7 +519,7 @@
     z-index: 1000;
     display: none;
     min-width: 10rem;
-    padding: 0.5rem 0;
+    padding: 10px;
     margin: 0;
     font-size: 1rem;
     color: #808b8d;
@@ -527,7 +530,7 @@
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0px;
     right: 0;
-    top: 20px;
+    top: 18px;
 }
 
 /* .dots-2{
@@ -605,9 +608,9 @@ img.img-fluid.img-config-slide {
 }
 
 .card-side-bar {
-    max-height: 200px; 
-    padding: 0; 
-    display: flex; 
+    max-height: 200px;
+    padding: 0;
+    display: flex;
     border: 1px solid #ddd;
     background-color: #fff;
 }
