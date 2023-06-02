@@ -3,14 +3,14 @@
 @section('content')
     @include('components.about')
 
-    <!-- Package Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
+    <!-- Bài viết nổi bật ( Trang chủ) -->
+    <div class="container-xxl">
+        <div class="row">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3"></h6>
                 <h1 class="mb-5">{{ __('msg.featurePost') }}</h1>
             </div>
-            <div class="row g-4 justify-content-center">
+            {{-- <div class="row g-4 justify-content-center">
                 @if ($featurePosts->count() > 0)
                     @foreach ($featurePosts as $item)
                         <div class="col-lg-3 col-md-3 wow fadeInUp card-home" data-wow-delay="0.1s">
@@ -40,11 +40,37 @@
                         </div>
                     @endforeach
                 @endif
+            </div> --}}
+
+            <div class="wrap justify-content-center">
+                @if ($featurePosts->count() > 0)
+                @foreach ($featurePosts as $item)
+                    <div class="box">
+                        <div class="box-top">
+                            <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
+                                <img class="box-image" src="{{ Asset($item->image) }}" alt="">
+                            </a>
+                            <div class="title-flex">
+                                <h3 class="box-title">
+                                    <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
+                                        title="{{ $item->translate(app()->getLocale())->name }}">
+                                        {{ $item->translate(app()->getLocale())->name }}
+                                    </a>
+                                </h3>
+                                {{-- <p class="user-follow-info">Giá tiền</p> --}}
+                            </div>
+                            <p class="description">{!! $item->translate(app()->getLocale())->description !!}</p>
+                        </div>
+                        <a href="{{ Route('post.show', [$item->slug, $item->id]) }}" class="button">{{ __('msg.readMore') }}</a>
+                    </div>
+                @endforeach
+                @endif
             </div>
         </div>
     </div>
     <!-- Package End -->
 
+    {{-- Danh mục --}}
     @foreach ($categories as $category)
         @if ($category->getAllPosts()->count() > 0)
             <div class="container-xxl py-5">
@@ -72,11 +98,9 @@
                                         <div class="card-description">
                                             <span>{!! $item->translate(app()->getLocale())->description !!}</span>
                                         </div>
-                                        <div class="d-flex justify-content-center mb-2">
                                             <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
                                                 class="btn btn-sm btn-primary px-3 border-radius"
                                                 style="border-radius: 30px;">{{ __('msg.readMore') }}</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +112,7 @@
         @endif
     @endforeach
 
-
+    {{-- Slide (trang chủ) --}}
     <!-- Slider Start-->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">

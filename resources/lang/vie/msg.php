@@ -19,5 +19,5 @@ return [
     'sendInfo' => 'Gửi thông tin',
     'searchWithKeyword' => 'Bạn đang tìm kiếm với từ khoá',
     'languageChina' => 'China',
-    'logo' => 'Laibaoxinchuan'
+    'logo' => '来宝心传'
 ];
