@@ -457,8 +457,8 @@ body {
     line-height: 35px;
     padding: 0px 7px 0px 7px;
     text-decoration: none;
-    /* color: #ffffff; */
-    color: #86b817;
+    color: #ffffff;
+    /* color: #86b817; */
 }
 
 #nav li li {
@@ -750,6 +750,12 @@ p {
 
     .user-follow-info {
         margin-top: 6px;
+    }
+}
+
+@media (max-width: 990px) {
+    #nav li a {
+        color: #86b817;
     }
 }
 
