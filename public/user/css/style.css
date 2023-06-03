@@ -457,7 +457,8 @@ body {
     line-height: 35px;
     padding: 0px 7px 0px 7px;
     text-decoration: none;
-    color: #ffffff;
+    /* color: #ffffff; */
+    color: #86b817;
 }
 
 #nav li li {
@@ -577,8 +578,9 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 4em;
+    max-height: 3em;
     line-height: 22px;
+    width: 95%;
 }
 
 .dots-3 {
@@ -662,7 +664,16 @@ p {
     flex-direction: column;
     flex-basis: 100%;
     position: relative;
-    padding: 24px;
+    padding: 10px;
+    background: #fff;
+}
+
+.box-post {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    position: relative;
+    padding: 10px;
     background: #fff;
 }
 
@@ -671,14 +682,19 @@ p {
     flex-direction: column;
     position: relative;
     gap: 12px;
-    margin-bottom: 36px;
+    /* margin-bottom: 36px; */
 }
 
 .box-image {
     width: 100%;
-    height: 360px;
+    height: 320px;
     object-fit: cover;
     object-position: 50% 20%;
+}
+
+.box-image:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
 }
 
 .title-flex {
@@ -703,14 +719,15 @@ p {
     text-align: center;
     margin-top: auto;
     padding: 16px;
-    color: #000;
+    /* color: #000; */
     background: transparent;
     box-shadow: 0px 0px 0px 1px black inset;
     transition: background 0.4s ease;
 }
 
 .button:hover {
-    background: var(--purple);
+    background: var(--primary);
+    color: #fff;
 }
 
 .fill-one {
@@ -752,6 +769,11 @@ p {
 @media (min-width: 640px) {
     .box {
         flex-basis: calc(50% - 12px);
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+    }
+
+    .box-post {
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
     }
 
     .title-flex {
@@ -782,6 +804,11 @@ p {
 @media (min-width: 1024px) {
     .box {
         flex-basis: calc(33.3% - 16px);
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+    }
+
+    .box-post {
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
     }
 
     .title-flex {
@@ -798,7 +825,23 @@ p {
 
 @media (min-width: 1100px) {
     .box {
-        /* flex-basis: calc(25% - 18px); */
+        flex-basis: calc(25% - 18px);
         box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+    }
+
+    .box-post {
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+    }
+}
+
+@media (min-width: 1400px) {
+    .box {
+        flex-basis: calc(25% - 18px);
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+    }
+
+    .box-post {
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+        flex-basis: calc(47%);
     }
 }

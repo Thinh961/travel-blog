@@ -18,6 +18,6 @@ return [
     'note' => 'Lời nhắn',
     'sendInfo' => 'Gửi thông tin',
     'searchWithKeyword' => 'Bạn đang tìm kiếm với từ khoá',
-    'languageChina' => 'China',
+    'languageChina' => '中文',
     'logo' => '来宝心传'
 ];

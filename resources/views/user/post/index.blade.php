@@ -2,15 +2,15 @@
 
 @section('content')
     <div class="container-xxl destination">
-        <div class="container">
+        <div class="row">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">laibaoxinchuan</h6>
+                <h6 class="section-title bg-white text-center text-primary px-3">来宝心传</h6>
                 <h1 class="mb-5">{{ $category ? $category->translate(app()->getLocale())->name : '' }}</h1>
             </div>
             <div class="row g-3">
                 <div class="col-lg-8 col-md-6">
                     @if ($posts->count() > 0)
-                        <div class="row g-4 justify-content-center">
+                        {{-- <div class="row g-4 justify-content-center">
                             @foreach ($posts as $item)
                                 <div class="col-lg-6 col-md-6 wow fadeInUp card-home-slide" data-wow-delay="0.1s">
                                     <div class="package-item">
@@ -39,6 +39,31 @@
                                     </div>
                                 </div>
                             @endforeach
+                        </div> --}}
+
+                        <div class="wrap justify-content-center wow fadeInUp" data-wow-delay="0.1s">
+                            @if ($posts->count() > 0)
+                            @foreach ($posts as $item)
+                                <div class="box-post">
+                                    <div class="box-top">
+                                        <a href="{{ Route('post.show', [$item->slug, $item->id]) }}">
+                                            <img class="box-image" src="{{ Asset($item->image) }}" alt="">
+                                        </a>
+                                        <div class="title-flex">
+                                            <h3 class="box-title">
+                                                <a href="{{ Route('post.show', [$item->slug, $item->id]) }}"
+                                                    title="{{ $item->translate(app()->getLocale())->name }}">
+                                                    {{ $item->translate(app()->getLocale())->name }}
+                                                </a>
+                                            </h3>
+                                            {{-- <p class="user-follow-info">Giá tiền</p> --}}
+                                        </div>
+                                        <p class="description">{!! $item->translate(app()->getLocale())->description !!}</p>
+                                    </div>
+                                    <a href="{{ Route('post.show', [$item->slug, $item->id]) }}" class="button">{{ __('msg.readMore') }}</a>
+                                </div>
+                            @endforeach
+                            @endif
                         </div>
                     @else
                         <div>
