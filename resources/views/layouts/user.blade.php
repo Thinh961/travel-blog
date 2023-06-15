@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
-                <div class="dropdown d-inline">
+                <div class="dropdown d-inline" style="margin-right: 15px;">
                     <a class="dropdown-toggle" href="#" style="pointer-events: none;" id="Dropdown"
                         role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                         {{ __('msg.language') }}
@@ -128,7 +128,10 @@
                         placeholder="Eg: laibaoxinchuan" name="keyword">
                     <button type="submit"
                         class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
-                        style="margin-top: 7px;">{{ __('msg.search') }}</button>
+                        style="margin-top: 7px;">
+                        {{-- {{ __('msg.search') }} --}}
+                        <i class="fas fa-search"></i>
+                    </button>
                 </form>
             </div>
         </nav>
