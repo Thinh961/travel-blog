@@ -30,10 +30,13 @@
     <link href="{{ Asset('user/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
+    <link href="{{ Asset('user/css/header.css') }}" rel="stylesheet">
     <link href="{{ Asset('user/css/style.css') }}" rel="stylesheet">
+    
     <!-- Tải thư viện jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    
+  
 </head>
 
 <body>
@@ -46,100 +49,118 @@
     </div>
     <!-- Spinner End -->
 
-
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-dark px-5 d-lg-block">
-        <div class="row gx-0">
-            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i
-                            class="fa fa-map-marker-alt me-2"></i>{{ $aboutUs ? $aboutUs->address : '' }}</small>
-                    <small class="me-3 text-light"><i
-                            class="fa fa-phone-alt me-2"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</small>
-                    <small class="text-light"><i
-                            class="fa fa-envelope-open me-2"></i>{{ $aboutUs ? $aboutUs->email : '' }}</small>
-                </div>
-            </div>
-            <div class="col-lg-4 text-center text-lg-end">
-                <div class="dropdown d-inline" style="margin-right: 15px;">
-                    <a class="dropdown-toggle" href="#" style="pointer-events: none;" id="Dropdown"
-                        role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        {{ __('msg.language') }}
-                    </a>
-
-                    <ul class="dropdown-menu" aria-labelledby="Dropdown">
-                        <li>
-                            <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['language' => 'vie']) }}">
-                                <i class="flag-united-kingdom flag"></i>
-                                Vietnamese
-                                @if (app()->getLocale() == 'vie')
-                                    <i class="fa fa-check text-success ms-2"></i>
-                                @endif
+    {{-- Menu mới --}}
+    <section class="ftco-section">		
+		<div class="container-fluid px-md-5 bg-dark">
+			<div class="row justify-content-between">
+				<div class="col-md-8 order-md-last">
+					<div class="row">
+						<div class="col-md-6 text-center">
+							<a class="navbar-brand" href="{{ Route('home') }}">{{ __('msg.logo') }} 
                             </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['language' => 'zh']) }}"><i
-                                    class="flag-poland flag"></i>{{ __('msg.languageChina') }}
-                                @if (app()->getLocale() == 'zh')
-                                    <i class="fa fa-check text-success ms-2"></i>
-                                @endif
+                            <div class="d-flex justify-content-center" style="height: 50px; align-items: center">
+                                <div class="dropdown d-inline" style="margin-right: 15px;">
+                                    {{-- Dropdown language --}}
+                                    <a class="dropdown-toggle" data-toggle="collapse" data-target="#dropdownLanguge" aria-expanded="false" aria-label="Toggle language" style="color: #fff; cursor: pointer;">
+                                        {{ __('msg.language') }}
+                                    </a>
+                                    <ul class="dropdown-menu" id="dropdownLanguge">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['language' => 'zh']) }}"><i
+                                                    class="flag-poland flag"></i>{{ __('msg.languageChina') }}
+                                                @if (app()->getLocale() == 'zh')
+                                                    <i class="fa fa-check text-success ms-2"></i>
+                                                @endif
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider" />
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['language' => 'vie']) }}">
+                                                <i class="flag-united-kingdom flag"></i>
+                                                Vietnamese
+                                                @if (app()->getLocale() == 'vie')
+                                                    <i class="fa fa-check text-success ms-2"></i>
+                                                @endif
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                                    @foreach ($medias as $item)
+                                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle mr-2" target="blank"
+                                            href="{{ $item->link }}">{!! $item->icon !!} </a>
+                                    @endforeach
+                                </div>
+                            </div>
+						</div>
+
+						<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3" style="align-items: center">
+							<form action="{{ Route('post.search') }}" method="GET" class="searchform order-lg-last">
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control pl-3" placeholder="Eg: laibaoxinchuan" name="keyword">
+                                <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
+                            </div>
+                            </form>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex">
+					<div class="social-media">
+                        <p class="mb-0 d-flex" style="flex-direction: column">
+                            <a href="#" class="d-flex align-items-center justify-content-center">
+                                <span class="fa fa-facebook"><i class="fa fa-map-marker mr-2 mt-2"></i>{{ $aboutUs ? $aboutUs->address : '' }}</span>
                             </a>
+                            <a href="#" class="d-flex align-items-center justify-content-center">
+                                <span class="fa fa-twitter"><i class="fa fa-phone mr-2 mt-2"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</span>
+                            </a>
+                            <a href="#" class="d-flex align-items-center justify-content-center">
+                                <span class="fa fa-instagram"><i class="fa fa-envelope-open mr-2 mt-2"></i>{{ $aboutUs ? $aboutUs->email : '' }}</span>
+                            </a>
+                        </p>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars" style="color: #86b817; font-size: 20px">Menu</span> 
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul id="nav" class="navbar-nav m-auto">
+                    @foreach ($categories as $item)
+                        <li class="nav-item">
+                            {{-- <a class="nav-link {{ count($item->descendants) > 0 ? 'dropdown-toggle' : '' }}" id="dropLi"
+                                href="{{ Route('post.index', [$item->slug, $item->id]) }}">{{ $item->translate(app()->getLocale())->name }}</a> --}}
+                            <span class="nav-link {{ count($item->descendants) > 0 ? 'dropdown-toggle' : '' }}" id="dropLi">
+                                <a 
+                                    href="{{ Route('post.index', [$item->slug, $item->id]) }}">{{ $item->translate(app()->getLocale())->name }}
+                                </a>
+                            </span>
+                                
+                            @if (count($item->descendants) > 0)
+                                @include('components.menu', ['categories' => $item->descendants])
+                            @endif
                         </li>
-                    </ul>
-                </div>
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    @foreach ($medias as $item)
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="blank"
-                            href="{{ $item->link }}">{!! $item->icon !!} </a>
                     @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
-    <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3">
-            <a href="{{ Route('home') }}" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>{{ __('msg.logo') }}</h1>
-            </a>
-
-            <ul id="nav">
-                @foreach ($categories as $item)
-                    <li>
-                        <a class="nav-item nav-link  {{ count($item->descendants) > 0 ? 'dropdown-toggle' : '' }}"
-                            href="{{ Route('post.index', [$item->slug, $item->id]) }}">{{ $item->translate(app()->getLocale())->name }}</a>
-                        @if (count($item->descendants) > 0)
-                            @include('components.menu', ['categories' => $item->descendants])
-                        @endif
+                    <li class="nav-item">
+                        <span class="nav-link"><a  href="{{ Route('about.index') }}">{{ __('msg.aboutUs') }}</a></span>
                     </li>
-                @endforeach
-                <li><a class="nav-item nav-link" href="{{ Route('about.index') }}">{{ __('msg.aboutUs') }}</a></li>
-                <li><a class="nav-item nav-link" href="{{ Route('video.index') }}">{{ __('msg.video') }}</a></li>
-                <li><a class="nav-item nav-link" href="{{ Route('contact.index') }}">{{ __('msg.contact') }}</a></li>
-            </ul>
-
-            <div class="position-relative ms-auto animated slideInDown search-input">
-                <form action="{{ Route('post.search') }}" method="GET">
-                    <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text"
-                        placeholder="Eg: laibaoxinchuan" name="keyword">
-                    <button type="submit"
-                        class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
-                        style="margin-top: 7px;">
-                        {{-- {{ __('msg.search') }} --}}
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
+                    <li class="nav-item">
+                        <span class="nav-link"><a href="{{ Route('video.index') }}">{{ __('msg.video') }}</a></span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link"><a href="{{ Route('contact.index') }}">{{ __('msg.contact') }}</a></span>
+                    </li>
+                </ul>
             </div>
-        </nav>
-
-
+            </div>
+	    </nav>
         <div class="container-fluid bg-primary py-5 mb-5 hero-header"
-            style="background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7)),
-            url({{ !empty($banner) ? Asset($banner->image) : Asset('user/img/bg-hero.jpg') }});  
+            style="url({{ !empty($banner) ? Asset($banner->image) : Asset('user/img/bg-hero.jpg') }});  
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;">
@@ -154,7 +175,7 @@
                 </div>
             </a>
         </div>
-    </div>
+	</section>
 
     @yield('content')
 
@@ -231,15 +252,16 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ Asset('user/lib/wow/wow.min.js') }}"></script>
+    <script src="{{ Asset('user/js/bootstrap.min.js') }}"></script>
+    {{-- <script src="{{ Asset('user/lib/wow/wow.min.js') }}"></script>
     <script src="{{ Asset('user/lib/easing/easing.min.js') }}"></script>
     <script src="{{ Asset('user/lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ Asset('user/lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ Asset('user/lib/tempusdominus/js/moment.min.js') }}"></script>
     <script src="{{ Asset('user/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
-    <script src="{{ Asset('user/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.j') }}s"></script>
+    <script src="{{ Asset('user/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.j') }}s"></script> --}}
 
     <!-- Template Javascript -->
     <script src="{{ Asset('user/js/main.js') }}"></script>

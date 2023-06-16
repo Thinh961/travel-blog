@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('content')
-    <div class="container-xxl destination">
+    <div class="container destination">
         <div class="container">
             <div class="row g-3">
                 <div class="col-lg-8 col-md-6">
