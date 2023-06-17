@@ -4,8 +4,8 @@
     @include('components.about')
 
     <!-- Bài viết nổi bật ( Trang chủ) -->
-    <div class="container-xxl">
-        <div class="row">
+    <div class="container">
+        <div class="row mt-5" style="justify-content: center">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3"></h6>
                 <h1 class="mb-5">{{ __('msg.featurePost') }}</h1>
@@ -41,8 +41,8 @@
     {{-- Danh mục --}}
     @foreach ($categories as $category)
         @if ($category->getAllPosts()->count() > 0)
-            <div class="container-xxl">
-                <div class="row">
+            <div class="container">
+                <div class="row mt-5" style="justify-content: center">
                     <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                         <h6 class="section-title bg-white text-center text-primary px-3"></h6>
                         <h1 class="mb-5">{{ $category->translate(app()->getLocale())->name }}</h1>
@@ -76,8 +76,8 @@
 
     {{-- Slide (trang chủ) --}}
     <!-- Slider Start-->
-    <div class="container-xxl">
-        <div class="row">
+    <div class="container">
+        <div class="row mt-5" style="justify-content: center">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3"></h6>
                 <h1 class="mb-5">{{ __('msg.maybeYouCare') }}</h1>
