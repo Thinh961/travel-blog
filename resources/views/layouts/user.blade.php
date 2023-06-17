@@ -56,7 +56,8 @@
 				<div class="col-md-8 order-md-last">
 					<div class="row">
 						<div class="col-md-6 text-center">
-							<a class="navbar-brand" href="{{ Route('home') }}">{{ __('msg.logo') }} 
+                            <a href="{{ Route('home') }}" class="navbar-brand p-0">
+                                <h1 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3 mr-2"></i>{{ __('msg.logo') }}</h1>
                             </a>
                             <div class="d-flex justify-content-center" style="height: 50px; align-items: center">
                                 <div class="dropdown d-inline" style="margin-right: 15px;">
@@ -95,7 +96,7 @@
                                 </div>
                             </div>
 						</div>
-
+                        {{-- Search --}}
 						<div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3" style="align-items: center">
 							<form action="{{ Route('post.search') }}" method="GET" class="searchform order-lg-last">
                             <div class="form-group d-flex">
@@ -110,19 +111,20 @@
 					<div class="social-media">
                         <p class="mb-0 d-flex" style="flex-direction: column">
                             <a href="#" class="d-flex align-items-center justify-content-center">
-                                <span class="fa fa-facebook"><i class="fa fa-map-marker mr-2 mt-2"></i>{{ $aboutUs ? $aboutUs->address : '' }}</span>
+                                <span class=""><i class="fa fa-map-marker mr-2 mt-2"></i>{{ $aboutUs ? $aboutUs->address : '' }}</span>
                             </a>
                             <a href="#" class="d-flex align-items-center justify-content-center">
-                                <span class="fa fa-twitter"><i class="fa fa-phone mr-2 mt-2"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</span>
+                                <span class=""><i class="fa fa-phone mr-2 mt-2"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</span>
                             </a>
                             <a href="#" class="d-flex align-items-center justify-content-center">
-                                <span class="fa fa-instagram"><i class="fa fa-envelope-open mr-2 mt-2"></i>{{ $aboutUs ? $aboutUs->email : '' }}</span>
+                                <span class=""><i class="fa fa-envelope-open mr-2 mt-2"></i>{{ $aboutUs ? $aboutUs->email : '' }}</span>
                             </a>
                         </p>
                     </div>
 				</div>
 			</div>
 		</div>
+        {{-- Menu --}}
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container-fluid">
             
@@ -132,35 +134,37 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul id="nav" class="navbar-nav m-auto">
                     @foreach ($categories as $item)
-                        <li class="nav-item">
-                            {{-- <a class="nav-link {{ count($item->descendants) > 0 ? 'dropdown-toggle' : '' }}" id="dropLi"
-                                href="{{ Route('post.index', [$item->slug, $item->id]) }}">{{ $item->translate(app()->getLocale())->name }}</a> --}}
-                            <span class="nav-link {{ count($item->descendants) > 0 ? 'dropdown-toggle' : '' }}" id="dropLi">
+                        <li>
+                            <div class="d-flex" style="align-items: center">
                                 <a 
                                     href="{{ Route('post.index', [$item->slug, $item->id]) }}">{{ $item->translate(app()->getLocale())->name }}
                                 </a>
-                            </span>
+                                <span class="nav-item nav-link {{ count($item->descendants) > 0 ? 'dropdown-toggle' : '' }}" id="dropLi"></span>
+                            </div>
                                 
                             @if (count($item->descendants) > 0)
                                 @include('components.menu', ['categories' => $item->descendants])
                             @endif
                         </li>
                     @endforeach
-                    <li class="nav-item">
-                        <span class="nav-link"><a  href="{{ Route('about.index') }}">{{ __('msg.aboutUs') }}</a></span>
+                    <li>
+                        <span class="nav-item nav-link"><a  href="{{ Route('about.index') }}">{{ __('msg.aboutUs') }}</a></span>
                     </li>
-                    <li class="nav-item">
-                        <span class="nav-link"><a href="{{ Route('video.index') }}">{{ __('msg.video') }}</a></span>
+                    <li>
+                        <span class="nav-item nav-link"><a href="{{ Route('video.index') }}">{{ __('msg.video') }}</a></span>
                     </li>
-                    <li class="nav-item">
-                        <span class="nav-link"><a href="{{ Route('contact.index') }}">{{ __('msg.contact') }}</a></span>
+                    <li>
+                        <span class="nav-item nav-link"><a href="{{ Route('contact.index') }}">{{ __('msg.contact') }}</a></span>
                     </li>
                 </ul>
             </div>
             </div>
 	    </nav>
+
+        {{-- Banner --}}
         <div class="container-fluid bg-primary py-5 mb-5 hero-header"
-            style="url({{ !empty($banner) ? Asset($banner->image) : Asset('user/img/bg-hero.jpg') }});  
+            style="background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7)),
+            url({{ !empty($banner) ? Asset($banner->image) : Asset('user/img/bg-hero.jpg') }});  
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;">
@@ -189,9 +193,9 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $aboutUs ? $aboutUs->address : '' }}</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $aboutUs ? $aboutUs->email : '' }}</p>
+                    <p class="mb-2" style="color: #fff"><i class="fa fa-map-marker-alt me-3 mr-2" style="color: #fff"></i>{{ $aboutUs ? $aboutUs->address : '' }}</p>
+                    <p class="mb-2" style="color: #fff"><i class="fa fa-phone-alt me-3 mr-2" style="color: #fff"></i>{{ $aboutUs ? $aboutUs->phone : '' }}</p>
+                    <p class="mb-2" style="color: #fff"><i class="fa fa-envelope me-3 mr-2" style="color: #fff"></i>{{ $aboutUs ? $aboutUs->email : '' }}</p>
 
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -236,7 +240,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-12 text-center mb-3 mb-md-0">
-                        &copy; Bản quyền thuộc về Laibaoxinchuan
+                        &copy; Bản quyền thuộc về <a href="laibaoxinchuan.com" target="_blank">laibaoxinchuan.com</a>
                     </div>
 
                 </div>
